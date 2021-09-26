@@ -16,6 +16,8 @@
 #include <mutex>  // NOLINT
 #include <unordered_map>
 
+#include<algorithm> //add
+
 #include "buffer/lru_replacer.h"
 #include "recovery/log_manager.h"
 #include "storage/disk/disk_manager.h"
@@ -151,6 +153,11 @@ class BufferPoolManager {
    * Flushes all the pages in the buffer pool to disk.
    */
   void FlushAllPagesImpl();
+
+  /**
+   * Get page from pages_, implement by Sunlly0
+   */
+  Page *GetPageFromList(page_id_t page_id);
 
   /** Number of pages in the buffer pool. */
   size_t pool_size_;

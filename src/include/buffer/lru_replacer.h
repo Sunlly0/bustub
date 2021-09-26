@@ -16,6 +16,7 @@
 #include <mutex>  // NOLINT
 #include <vector>
 
+
 #include "buffer/replacer.h"
 #include "common/config.h"
 
@@ -47,6 +48,8 @@ class LRUReplacer : public Replacer {
 
  private:
   // TODO(student): implement me!
+  std::list<frame_id_t> frame_list;
+  std::mutex latch_;
 };
 
 }  // namespace bustub

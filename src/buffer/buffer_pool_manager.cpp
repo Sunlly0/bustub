@@ -34,9 +34,24 @@ BufferPoolManager::~BufferPoolManager() {
   delete replacer_;
 }
 
+Page *BufferPoolManager::GetPageFromList(page_id_t page_id){
+  Page *page_index;
+  page_index=pages_;
+  for(int i=0;i<pool_size_;page_index++){
+    if(page_index->GetPageId()==page_id){
+      return page_index;
+    }
+  }
+}
+
 Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
   // 1.     Search the page table for the requested page (P).
+  frame_id_t frame_id=page_table_.at(page_id);
+
   // 1.1    If P exists, pin it and return it immediately.
+
+
+
   // 1.2    If P does not exist, find a replacement page (R) from either the free list or the replacer.
   //        Note that pages are always found from the free list first.
   // 2.     If R is dirty, write it back to the disk.
