@@ -19,6 +19,8 @@ namespace bustub {
     LRUReplacer::~LRUReplacer() =default;
 
     bool LRUReplacer::Victim(frame_id_t * frame_id) {
+        std::lock_guard<std::mutex> guard(latch_); // in case there are several threads to operate at the same time. by Sunlly0
+
         if (!frame_list.empty()) {
             frame_id = & frame_list.front();
             frame_list.pop_front();

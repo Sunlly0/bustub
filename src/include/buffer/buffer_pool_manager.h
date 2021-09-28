@@ -113,6 +113,13 @@ class BufferPoolManager {
     }
   }
 
+    /**
+   * Get page from pages_, implement by Sunlly0
+   */
+  Page *GetPageFromList(page_id_t page_id, frame_id_t *frame_id);
+  bool ChooseFromFreeListOrLRU(page_id_t *page_id_replace, frame_id_t *frame_id_replace);
+
+
   /**
    * Fetch the requested page from the buffer pool.
    * @param page_id id of page to be fetched
@@ -154,10 +161,7 @@ class BufferPoolManager {
    */
   void FlushAllPagesImpl();
 
-  /**
-   * Get page from pages_, implement by Sunlly0
-   */
-  Page *GetPageFromList(page_id_t page_id);
+
 
   /** Number of pages in the buffer pool. */
   size_t pool_size_;
