@@ -53,7 +53,7 @@ bool BufferPoolManager::ChooseFromFreeListOrLRU(page_id_t *page_id_replace, fram
       return true;
     }
   }
-  return false；
+  return false;
 
 } 
 
@@ -84,8 +84,8 @@ Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
 
   // 1.1    If P exists, pin it and return it immediately.
   if(!page_index){
-    page_index.pin_count++;
-    if(page_index.GetPinCount()==1){
+    page_index->pin_count_++;
+    if(page_index->GetPinCount()==1){
       replacer_->Pin(frame_id);
     }
     return page_index;
@@ -206,7 +206,7 @@ bool BufferPoolManager::DeletePageImpl(page_id_t page_id) {
   if(!page_delete->GetPinCount()>0){
     frame_id_t frame_id_delete=page_table_.erase(page_id);
     page_delete->ResetMemory();
-    free_list_.insert(frame_id_delete);
+    free_list_.push_back(frame_id_delete);
     return true;
   }
   return false;
