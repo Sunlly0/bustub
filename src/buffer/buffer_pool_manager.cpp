@@ -81,7 +81,10 @@ Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
 
   // 1.1    If P exists, pin it and return it immediately.
   if(!page_index){
-    replacer_->Pin(frame_id);
+    page_index.pin_count++;
+    if(page_index.GetPinCount()==1){
+      replacer_->Pin(frame_id);
+    }
     return page_index;
   }
   // 1.2    If P does not exist, find a replacement page (R) from either the free list or the replacer.
@@ -98,7 +101,8 @@ Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
             page_index->ResetMemory();
             page_index->page_id_=page_id;
             page_index->pin_count_=1;
-            page_index->is_dirty_=true;
+            page_index->is_dirty_=false;
+            replacer_->Pin(frame_id_replace);
             disk_manager_->ReadPage(page_id,page_index->data_);
             return page_index;
         }
@@ -124,7 +128,7 @@ bool BufferPoolManager::UnpinPageImpl(page_id_t page_id, bool is_dirty) {
   Page *page_unpin=GetPageFromList(page_id);
   if(!page_unpin&&page_unpin->GetPinCount()>0){
     //decide if the pincount is right, if there is a process to unpin the page,the pincount must >0. by Sunlly0
-      page_unpin->is_dirty_=is_dirty;
+      page_unpin->is_dirty_=page_unpin->IsDirty()||is_dirty;
 
       if(--page_unpin->pin_count_==0){
         frame_id_t frame_unpin=page_table_.at(page_id);
@@ -160,13 +164,14 @@ Page *BufferPoolManager::NewPageImpl(page_id_t *page_id) {
     // 3.   Update P's metadata, zero out memory and add P to the page table.
     auto page_new=pages_+frame_id_replace;
     page_new->ResetMemory();
-    page_table_.insert({page_id_new,frame_id_replace});
     // 4.   Set the page ID output parameter. Return a pointer to P.
-    page_id=&page_id_new;
     page_new->pin_count_=1;
-    page_new->is_dirty_=true;
+    replacer_->Pin(frame_id_replace);
+    page_new->is_dirty_=false;
     page_new->page_id_=page_id_new;
+    page_table_.insert({page_id_new,frame_id_replace});
 
+    page_id=&page_id_new;
     return page_new;
   }
   
@@ -195,10 +200,10 @@ bool BufferPoolManager::DeletePageImpl(page_id_t page_id) {
   }
   // 2.   If P exists, but has a non-zero pin-count, return false. Someone is using the page.
   // 3.   Otherwise, P can be deleted. Remove P from the page table, reset its metadata and return it to the free list.
-  if(page_delete->GetPinCount()==0){
+  if(!page_delete->GetPinCount()>0){
     frame_id_t frame_id_delete=page_table_.erase(page_id);
     page_delete->ResetMemory();
-    free_list_.remove(frame_id_delete);
+    free_list_.insert(frame_id_delete);
     return true;
   }
   return false;
