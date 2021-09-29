@@ -39,18 +39,21 @@ bool BufferPoolManager::ChooseFromFreeListOrLRU(page_id_t *page_id_replace, fram
   if(!free_list_.empty()){
     frame_id_replace=&free_list_.front();
     free_list_.pop_front();
+    return true;
   }
   else{
     //when choose a victim, should it flush to disk first? by Sunlly0
     if(!replacer_->Victim(frame_id_replace)){
-        return nullptr;
+        return false;
     }
     else{
       page_replace=pages_+ *frame_id_replace;
       *page_id_replace=page_replace->GetPageId();
       FlushPageImpl(*page_id_replace);
+      return true;
     }
   }
+  return false；
 
 } 
 
