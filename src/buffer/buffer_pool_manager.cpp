@@ -48,7 +48,7 @@ bool BufferPoolManager::ChooseFromFreeListOrLRU(page_id_t *page_id_replace, fram
     }
     else{
       page_replace=pages_+ *frame_id_replace;
-      *page_id_replace=page_replace->GetPageId();
+      page_id_replace=&(page_replace->page_id_); //cannot use GetPageId()
       FlushPageImpl(*page_id_replace);
       return true;
     }
@@ -57,7 +57,7 @@ bool BufferPoolManager::ChooseFromFreeListOrLRU(page_id_t *page_id_replace, fram
 
 } 
 
-Page *BufferPoolManager::GetPageFromList(page_id_t page_id, frame_id_t *frame_id=nullptr){
+Page *BufferPoolManager::GetPageFromList(page_id_t page_id, frame_id_t *frame_id){
   // Page *page_index;
   // page_index=pages_;
   // for(int i=0;i<pool_size_;page_index++){
@@ -128,7 +128,7 @@ Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
 }
 
 bool BufferPoolManager::UnpinPageImpl(page_id_t page_id, bool is_dirty) {
-  Page *page_unpin=GetPageFromList(page_id);
+  Page *page_unpin=GetPageFromList(page_id,nullptr);
   if(!page_unpin&&page_unpin->GetPinCount()>0){
     //decide if the pincount is right, if there is a process to unpin the page,the pincount must >0. by Sunlly0
       page_unpin->is_dirty_=page_unpin->IsDirty()||is_dirty;
@@ -145,7 +145,7 @@ bool BufferPoolManager::UnpinPageImpl(page_id_t page_id, bool is_dirty) {
 //TODO: if the page is pinned??
 bool BufferPoolManager::FlushPageImpl(page_id_t page_id) {
   // Make sure you call DiskManager::WritePage!
-  Page *page_flush=GetPageFromList(page_id);
+  Page *page_flush=GetPageFromList(page_id,nullptr);
   //if page is dirty then
   if(!page_flush&&page_flush->IsDirty()==true){
     disk_manager_->WritePage(page_id, page_flush->GetData());
@@ -163,7 +163,7 @@ Page *BufferPoolManager::NewPageImpl(page_id_t *page_id) {
   frame_id_t frame_id_replace;
   // 1.   If all the pages in the buffer pool are pinned, return nullptr.
   // 2.   Pick a victim page P from either the free list or the replacer. Always pick from the free list first.
-  if(!ChooseFromFreeListOrLRU(&frame_id_replace)){
+  if(!ChooseFromFreeListOrLRU(nullptr,&frame_id_replace)){
     // 3.   Update P's metadata, zero out memory and add P to the page table.
     auto page_new=pages_+frame_id_replace;
     page_new->ResetMemory();
@@ -195,7 +195,7 @@ bool BufferPoolManager::DeletePageImpl(page_id_t page_id) {
   // 0.   Make sure you call DiskManager::DeallocatePage!
   disk_manager_->DeallocatePage(page_id);
   // 1.   Search the page table for the requested page (P).
-  Page *page_delete=GetPageFromList(page_id);
+  Page *page_delete=GetPageFromList(page_id,nullptr);
 
   // 1.   If P does not exist, return true.
   if(!page_delete){
@@ -203,7 +203,7 @@ bool BufferPoolManager::DeletePageImpl(page_id_t page_id) {
   }
   // 2.   If P exists, but has a non-zero pin-count, return false. Someone is using the page.
   // 3.   Otherwise, P can be deleted. Remove P from the page table, reset its metadata and return it to the free list.
-  if(!page_delete->GetPinCount()>0){
+  if(page_delete->GetPinCount()==0){
     frame_id_t frame_id_delete=page_table_.erase(page_id);
     page_delete->ResetMemory();
     free_list_.push_back(frame_id_delete);
