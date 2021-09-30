@@ -14,6 +14,7 @@
 
 #include <list>
 #include <unordered_map>
+#include "common/logger.h"
 
 namespace bustub {
 
@@ -37,7 +38,7 @@ BufferPoolManager::~BufferPoolManager() {
 bool BufferPoolManager::ChooseFromFreeListOrLRU(page_id_t *page_id_replace, frame_id_t *frame_id_replace){
   Page *page_replace;
   if(!free_list_.empty()){
-    frame_id_replace=&free_list_.front();
+    *frame_id_replace=free_list_.front();
     free_list_.pop_front();
     return true;
   }
@@ -48,8 +49,12 @@ bool BufferPoolManager::ChooseFromFreeListOrLRU(page_id_t *page_id_replace, fram
     }
     else{
       page_replace=pages_+ *frame_id_replace;
-      page_id_replace=&(page_replace->page_id_); //cannot use GetPageId()
-      FlushPageImpl(*page_id_replace);
+      if(page_id_replace!=nullptr){
+        *page_id_replace=(page_replace->page_id_); //cannot use GetPageId()
+
+      }
+      FlushPageImpl(page_replace->GetPageId());
+
       return true;
     }
   }
@@ -70,7 +75,11 @@ Page *BufferPoolManager::GetPageFromList(page_id_t page_id, frame_id_t *frame_id
   auto page_index=page_table_.find(page_id);
   if(page_index!=page_table_.end()){
     // IF page_id is in page_table_
-    frame_id=&page_table_.at(page_id);
+    if(frame_id!=nullptr){
+      *frame_id=page_table_.at(page_id);
+    }
+    // LOG_INFO("# Pages: %d",page_id);
+    // LOG_INFO("Fetching page %d", page_id);
 
     return (pages_+ page_table_.at(page_id));
   }
@@ -79,15 +88,40 @@ Page *BufferPoolManager::GetPageFromList(page_id_t page_id, frame_id_t *frame_id
 
 Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
   // 1.     Search the page table for the requested page (P).
+
   frame_id_t frame_id;
   Page *page_index=GetPageFromList(page_id, &frame_id);
 
+  //DEBUG code:
+
+  // auto it=page_table_.begin();
+  // while(it!=page_table_.end()){
+  //   LOG_DEBUG("page table page_id: %d, frame_id= %d", it->first,it->second);
+  //   frame_id_t frame_id_debug;
+  //   Page *page_debug=GetPageFromList(it->first, &frame_id_debug);
+  //   LOG_DEBUG("page table data %s", page_debug->GetData());
+  //   it++;
+  // }
+
+  // frame_id_t frame_id_debug;
+  // Page *page_debug=GetPageFromList(20, &frame_id_debug);
+  // LOG_DEBUG("page table frame_id %s", page_debug->GetData());
+
+
+  // LOG_DEBUG("Fetching page_id= %d", page_id);
+  // LOG_DEBUG("Fetching frame_id= %d", frame_id);
+
+
+//DEBUG:end
+
   // 1.1    If P exists, pin it and return it immediately.
-  if(!page_index){
+  if(page_index!=nullptr){
     page_index->pin_count_++;
     if(page_index->GetPinCount()==1){
       replacer_->Pin(frame_id);
+      // LOG_DEBUG("Fetching page pin!");
     }
+    // LOG_DEBUG("Fetching page data= %s", page_index->GetData());
     return page_index;
   }
   // 1.2    If P does not exist, find a replacement page (R) from either the free list or the replacer.
@@ -100,14 +134,17 @@ Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
             // 3.     Delete R from the page table and insert P.
             page_table_.erase(page_id_replace);
             page_table_.insert({page_id,frame_id_replace});
+
+            auto page_new=pages_+frame_id_replace;
+
         // 4.     Update P's metadata, read in the page content from disk, and then return a pointer to P.
-            page_index->ResetMemory();
-            page_index->page_id_=page_id;
-            page_index->pin_count_=1;
-            page_index->is_dirty_=false;
+            page_new->ResetMemory();
+            page_new->page_id_=page_id;
+            page_new->pin_count_=1;
+            page_new->is_dirty_=false;
             replacer_->Pin(frame_id_replace);
-            disk_manager_->ReadPage(page_id,page_index->data_);
-            return page_index;
+            disk_manager_->ReadPage(page_id,page_new->data_);
+            return page_new;
         }
 
     // if(!free_list_.empty()){
@@ -129,15 +166,18 @@ Page *BufferPoolManager::FetchPageImpl(page_id_t page_id) {
 
 bool BufferPoolManager::UnpinPageImpl(page_id_t page_id, bool is_dirty) {
   Page *page_unpin=GetPageFromList(page_id,nullptr);
-  if(!page_unpin&&page_unpin->GetPinCount()>0){
-    //decide if the pincount is right, if there is a process to unpin the page,the pincount must >0. by Sunlly0
-      page_unpin->is_dirty_=page_unpin->IsDirty()||is_dirty;
+  if(page_unpin!=nullptr)
+  {
+    if(page_unpin->GetPinCount()>0){
+      //decide if the pincount is right, if there is a process to unpin the page,the pincount must >0. by Sunlly0
+        page_unpin->is_dirty_=page_unpin->IsDirty()||is_dirty;
 
-      if(--page_unpin->pin_count_==0){
-        frame_id_t frame_unpin=page_table_.at(page_id);
-        replacer_->Unpin(frame_unpin);
-      }
-      return true; 
+        if(--page_unpin->pin_count_==0){
+          frame_id_t frame_unpin=page_table_.at(page_id);
+          replacer_->Unpin(frame_unpin);
+        }
+        return true; 
+    }
   }
   return false; 
 }
@@ -147,9 +187,11 @@ bool BufferPoolManager::FlushPageImpl(page_id_t page_id) {
   // Make sure you call DiskManager::WritePage!
   Page *page_flush=GetPageFromList(page_id,nullptr);
   //if page is dirty then
-  if(!page_flush&&page_flush->IsDirty()==true){
-    disk_manager_->WritePage(page_id, page_flush->GetData());
-    return true;
+  if(page_flush!=nullptr){
+      if(page_flush->IsDirty()==true){
+      disk_manager_->WritePage(page_id, page_flush->GetData());
+      return true;
+    }
   }
   return false;
   
@@ -161,9 +203,10 @@ Page *BufferPoolManager::NewPageImpl(page_id_t *page_id) {
   page_id_t page_id_new=disk_manager_->AllocatePage();
 
   frame_id_t frame_id_replace;
+  page_id_t page_id_replace;
   // 1.   If all the pages in the buffer pool are pinned, return nullptr.
   // 2.   Pick a victim page P from either the free list or the replacer. Always pick from the free list first.
-  if(!ChooseFromFreeListOrLRU(nullptr,&frame_id_replace)){
+  if(ChooseFromFreeListOrLRU(&page_id_replace,&frame_id_replace)){
     // 3.   Update P's metadata, zero out memory and add P to the page table.
     auto page_new=pages_+frame_id_replace;
     page_new->ResetMemory();
@@ -172,9 +215,15 @@ Page *BufferPoolManager::NewPageImpl(page_id_t *page_id) {
     replacer_->Pin(frame_id_replace);
     page_new->is_dirty_=false;
     page_new->page_id_=page_id_new;
+
+    page_table_.erase(page_id_replace);
     page_table_.insert({page_id_new,frame_id_replace});
 
-    page_id=&page_id_new;
+    *page_id=page_id_new;
+    // page_id=&page_id_new; //cannot do that！
+
+    // LOG_INFO("# Pages: %d", num_pages);
+    // LOG_DEBUG("Fetching page %d", page_id);
     return page_new;
   }
   

@@ -22,7 +22,7 @@ namespace bustub {
         std::lock_guard<std::mutex> guard(latch_); // in case there are several threads to operate at the same time. by Sunlly0
 
         if (!frame_list.empty()) {
-            frame_id = & frame_list.front();
+            *frame_id = frame_list.front();
             frame_list.pop_front();
             return true;
         }
@@ -37,7 +37,13 @@ namespace bustub {
     }
 
     void LRUReplacer::Unpin(frame_id_t frame_id) {
-        frame_list.push_back(frame_id);
+        std::list<frame_id_t>::iterator itePos = std::find(frame_list.begin(),frame_list.end(),frame_id);
+        //in case two same frame in frame_list. by Sunlly0
+        if(itePos==frame_list.end()){
+            frame_list.push_back(frame_id);
+        }
+
+
     }
 
     size_t LRUReplacer::Size() {

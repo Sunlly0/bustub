@@ -15,6 +15,7 @@
 #include <list>
 #include <mutex>  // NOLINT
 #include <vector>
+#include <algorithm>
 
 
 #include "buffer/replacer.h"
