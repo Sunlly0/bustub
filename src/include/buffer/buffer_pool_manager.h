@@ -114,10 +114,9 @@ class BufferPoolManager {
   }
 
     /**
-   * Get page from pages_, implement by Sunlly0
+   * Get page, implement by Sunlly0
    */
-  Page *GetPageFromList(page_id_t page_id, frame_id_t *frame_id);
-  bool ChooseFromFreeListOrLRU(page_id_t *page_id_replace, frame_id_t *frame_id_replace);
+  bool ChooseFromFreeListOrLRU(frame_id_t *frame_id_replace);
 
 
   /**

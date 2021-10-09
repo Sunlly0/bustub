@@ -19,7 +19,7 @@ namespace bustub {
     LRUReplacer::~LRUReplacer() =default;
 
     bool LRUReplacer::Victim(frame_id_t * frame_id) {
-        std::lock_guard<std::mutex> guard(latch_); // in case there are several threads to operate at the same time. by Sunlly0
+        std::lock_guard<std::mutex> lock(latch_); // in case there are several threads to operate at the same time. by Sunlly0
 
         if (!frame_list.empty()) {
             *frame_id = frame_list.front();
@@ -31,12 +31,14 @@ namespace bustub {
     }
 
     void LRUReplacer::Pin(frame_id_t frame_id) {
+        std::lock_guard<std::mutex> lock(latch_);
         if (!frame_list.empty()) {
             frame_list.remove(frame_id);
         }
     }
 
     void LRUReplacer::Unpin(frame_id_t frame_id) {
+        std::lock_guard<std::mutex> lock(latch_);
         std::list<frame_id_t>::iterator itePos = std::find(frame_list.begin(),frame_list.end(),frame_id);
         //in case two same frame in frame_list. by Sunlly0
         if(itePos==frame_list.end()){
