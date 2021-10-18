@@ -27,23 +27,57 @@ namespace bustub {
  * next page id and set max size
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, int max_size) {}
+void B_PLUS_TREE_LEAF_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, int max_size) {
+  page_type_ = IndexPageType::LEAF_PAGE;
+  size_ = 0;
+  parent_page_id_ = parent_id;
+  page_id_ = page_id;
+  next_page_id_=INVALID_PAGE_ID;
+  max_size_ = max_size;
+}
 
 /**
  * Helper methods to set/get next page id
  */
 INDEX_TEMPLATE_ARGUMENTS
-page_id_t B_PLUS_TREE_LEAF_PAGE_TYPE::GetNextPageId() const { return INVALID_PAGE_ID; }
+page_id_t B_PLUS_TREE_LEAF_PAGE_TYPE::GetNextPageId() const {
+  return next_page_id_; 
+}
 
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::SetNextPageId(page_id_t next_page_id) {}
+void B_PLUS_TREE_LEAF_PAGE_TYPE::SetNextPageId(page_id_t next_page_id) {
+  next_page_id_=next_page_id;
+}
 
 /**
  * Helper method to find the first index i so that array[i].first >= key
  * NOTE: This method is only used when generating index iterator
  */
 INDEX_TEMPLATE_ARGUMENTS
-int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator &comparator) const { return 0; }
+int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator &comparator) const {
+  // //使用二分查找，对时间进一步优化
+  // int left=0;
+  // int right=size_
+  // keyType key_mid=KeyAt(mid);
+  // while(left<right){
+  //   int mid=(right-left)/2;
+  //   key_mid=KeyAt(mid);
+  //   if(comparator(key_mid,key)<0){
+  //     left=mid;
+  //   }
+  //   else{
+  //     right=mid;
+  //   }
+  //   int mid=(right-left)/2;
+  // }
+  // return right;
+
+  //使用顺序查找
+  for(int index=0;index<size_;index++){
+    if(comparator(array{index}.first,key)>=0) return index;
+  }
+  return 0; 
+}
 
 /*
  * Helper method to find and return the key associated with input "index"(a.k.a

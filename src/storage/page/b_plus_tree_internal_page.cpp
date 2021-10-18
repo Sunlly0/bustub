@@ -25,7 +25,13 @@ namespace bustub {
  * max page size
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, int max_size) {}
+void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, int max_size) {
+  page_type_ = IndexPageType::INTERNAL_PAGE;
+  size_ = 0;
+  max_size_ = max_size;
+  parent_page_id_ = parent_id;
+  page_id_ = page_id;
+}
 /*
  * Helper method to get/set the key associated with input "index"(a.k.a
  * array offset)
@@ -33,26 +39,47 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id
 INDEX_TEMPLATE_ARGUMENTS
 KeyType B_PLUS_TREE_INTERNAL_PAGE_TYPE::KeyAt(int index) const {
   // replace with your own code
+  //Q:是否可能产生数组越界？ by Sunlly0
+  //A:使用C语言风格的数组，可以越界访问数组
+  //可以不考虑超过size和max_size的问题，因为是辅助函数
   KeyType key{};
+  auto pair = arrar[index];
+  key = std::get<0>(pair);
   return key;
 }
 
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_INTERNAL_PAGE_TYPE::SetKeyAt(int index, const KeyType &key) {}
+void B_PLUS_TREE_INTERNAL_PAGE_TYPE::SetKeyAt(int index, const KeyType &key) {
+  //Q:key变化之后，value是否变化？
+  //A:不会，指向的页面不变，只有关键字变化
+    auto pair = arrar[index];
+    std::get<0>(pair) = key;
+}
 
 /*
  * Helper method to find and return array index(or offset), so that its value
  * equals to input "value"
  */
 INDEX_TEMPLATE_ARGUMENTS
-int B_PLUS_TREE_INTERNAL_PAGE_TYPE::ValueIndex(const ValueType &value) const { return 0; }
+int B_PLUS_TREE_INTERNAL_PAGE_TYPE::ValueIndex(const ValueType &value) const { 
+  for(int i=0;i<size;i++){
+    auto pair = arrar[i];
+    if(std::get<1>(pair)==value) return i;
+  }
+  // return 0; 
+}
 
 /*
  * Helper method to get the value associated with input "index"(a.k.a array
  * offset)
  */
 INDEX_TEMPLATE_ARGUMENTS
-ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::ValueAt(int index) const { return 0; }
+ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::ValueAt(int index) const {
+  ValueType value{};
+  auto pair = arrar[index];
+  value = std::get<1>(pair);
+  return value;
+}
 
 /*****************************************************************************
  * LOOKUP
@@ -64,7 +91,15 @@ ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::ValueAt(int index) const { return 0; }
  */
 INDEX_TEMPLATE_ARGUMENTS
 ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::Lookup(const KeyType &key, const KeyComparator &comparator) const {
-  return INVALID_PAGE_ID;
+  //遍历所有键进行查找
+  for(int index=1;index<size_;index++){
+    auto pagekey=KeyAt(index);
+    //找到恰好比key大的值后
+    if(comparator(pagekey,key<0)) return ValueAt(index-1);
+  }
+  //遍历完也没有找到比key大的值，则进入最右边的分支
+  return ValueAt(size_);
+  // return INVALID_PAGE_ID;
 }
 
 /*****************************************************************************
@@ -78,7 +113,13 @@ ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::Lookup(const KeyType &key, const KeyCo
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::PopulateNewRoot(const ValueType &old_value, const KeyType &new_key,
-                                                     const ValueType &new_value) {}
+                                                     const ValueType &new_value) {
+  //仅在作为叶子节点的根节点满的时候，分解成新的内部节点的时候调用
+  auto pair=std::make_pair(new_key,new_value);
+  std::get<1>(arrar[0])=value;
+  arrar[1]=pair;
+  this->SetSize(1);
+}
 /*
  * Insert new_key & new_value pair right after the pair with its value ==
  * old_value
@@ -87,7 +128,18 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::PopulateNewRoot(const ValueType &old_value,
 INDEX_TEMPLATE_ARGUMENTS
 int B_PLUS_TREE_INTERNAL_PAGE_TYPE::InsertNodeAfter(const ValueType &old_value, const KeyType &new_key,
                                                     const ValueType &new_value) {
-  return 0;
+  auto index=ValueIndex(old_value);
+  auto pair=std:make_pair(new_key,new_value);
+  if(size_<max_size_){
+    //插入键值对，对其后的所有键进行移位，保证有序
+    for(int i=index+1;i<size_;i++){
+      arrar[i+1]=arrar[i];
+    }
+    arrar[index+1]=pair;
+    this->IncreaseSize(1);
+  }
+  //Q:如果插入后size==max_size_，是否要调用分裂函数？可能是树的实现要考虑的事情
+  return size_;
 }
 
 /*****************************************************************************
@@ -98,7 +150,17 @@ int B_PLUS_TREE_INTERNAL_PAGE_TYPE::InsertNodeAfter(const ValueType &old_value, 
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveHalfTo(BPlusTreeInternalPage *recipient,
-                                                BufferPoolManager *buffer_pool_manager) {}
+                                                BufferPoolManager *buffer_pool_manager) {
+  int index=this->GetMinSize();
+  keyType newkey=KeyAt(index);
+  Valuetype newvalue=ValueAt(index);
+  for(int i=index;i<size_;i++){
+    recipient->arrar{i-index}=arrar{index};
+    // arrar{index}=0;
+  }
+  recipient->SetSize(size_-index);
+  this->Setsize(index);
+}
 
 /* Copy entries into me, starting from {items} and copy {size} entries.
  * Since it is an internal page, for all entries (pages) moved, their parents page now changes to me.
@@ -116,14 +178,30 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyNFrom(MappingType *items, int size, Buf
  * NOTE: store key&value pair continuously after deletion
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Remove(int index) {}
+void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Remove(int index) {
+  for(int i=index;i<size_;i++){
+    //从后往前移位
+    arrar[i]=arrar[i+1];
+    // if(i==size_) arrar[i]{};
+  }
+  // arrar[size_]
+  //将最后一位清空
+  size_--;
+}
 
 /*
  * Remove the only key & value pair in internal page and return the value
  * NOTE: only call this method within AdjustRoot()(in b_plus_tree.cpp)
  */
 INDEX_TEMPLATE_ARGUMENTS
-ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::RemoveAndReturnOnlyChild() { return INVALID_PAGE_ID; }
+ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::RemoveAndReturnOnlyChild() { 
+  //只有一个键值对的时候（没有key，只有value）删除该页面
+  if(size_==1){
+    arrar{size_}=0;
+    return ValueAt(0);
+  }
+  return INVALID_PAGE_ID; 
+}
 /*****************************************************************************
  * MERGE
  *****************************************************************************/
@@ -136,7 +214,15 @@ ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::RemoveAndReturnOnlyChild() { return IN
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveAllTo(BPlusTreeInternalPage *recipient, const KeyType &middle_key,
-                                               BufferPoolManager *buffer_pool_manager) {}
+                                               BufferPoolManager *buffer_pool_manager) {
+  auto index=KeyAt(middle_key);
+  for(int i=0;i<recipient->size_;i++){
+    arrar{index+0}=recipient->arrar{index};
+  }
+  this->IncreaseSize(recipient->size_);
+  //Q:如何处理recipient数组的清除和添加middle_key?
+  buffer_pool_manager->DeletePageImpl(recipinent->page_id);
+}
 
 /*****************************************************************************
  * REDISTRIBUTE
@@ -151,14 +237,31 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveAllTo(BPlusTreeInternalPage *recipient,
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveFirstToEndOf(BPlusTreeInternalPage *recipient, const KeyType &middle_key,
-                                                      BufferPoolManager *buffer_pool_manager) {}
+                                                      BufferPoolManager *buffer_pool_manager) {
+  //Q:被旁边的节点借键值对的情况？
+  auto pair=array{0};
+  //将第一个键值对加在recipient页之后
+  recipient->IncreaseSize(1);
+  recipient->array{size_}=pair;
+  //对于自己，数组往前移动一位
+  for(int index=0;index<size_;index++){
+    arrar[index]=arrar[index+1];
+  }
+  size_--;
+  //更新middle_key并且将父节点写出到磁盘
+  middle_key=std::get<0>(pair);
+  buffer_pool_manager->FlushPageImpl(parent_page_id_);
+}
 
 /* Append an entry at the end.
  * Since it is an internal page, the moved entry(page)'s parent needs to be updated.
  * So I need to 'adopt' it by changing its parent page id, which needs to be persisted with BufferPoolManger
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyLastFrom(const MappingType &pair, BufferPoolManager *buffer_pool_manager) {}
+void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyLastFrom(const MappingType &pair, BufferPoolManager *buffer_pool_manager) {
+
+  buffer_pool_manager->FlushPageImpl(page_id_);
+}
 
 /*
  * Remove the last key & value pair from this page to head of "recipient" page.
@@ -169,7 +272,21 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyLastFrom(const MappingType &pair, Buffe
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveLastToFrontOf(BPlusTreeInternalPage *recipient, const KeyType &middle_key,
-                                                       BufferPoolManager *buffer_pool_manager) {}
+                                                       BufferPoolManager *buffer_pool_manager) {
+  //Q:被旁边的节点借键值对的情况？
+  auto pair=array{size_};
+  //数组往后移动一位
+  for(int index=0;index<recipient->size_;index++){
+    recipient->arrar[index+1]=recipient->arrar[index];
+  }
+  //将第一个键值对加在recipient页之后
+  recipient->IncreaseSize(1);
+  recipient->array{0}=pair;
+  size_--;
+  //更新middle_key并且将父节点写出到磁盘
+  middle_key=std::get<0>(pair);
+  buffer_pool_manager->FlushPageImpl(parent_page_id_);
+}
 
 /* Append an entry at the beginning.
  * Since it is an internal page, the moved entry(page)'s parent needs to be updated.

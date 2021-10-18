@@ -31,7 +31,12 @@ BPLUSTREE_TYPE::BPlusTree(std::string name, BufferPoolManager *buffer_pool_manag
  * Helper function to decide whether current b+tree is empty
  */
 INDEX_TEMPLATE_ARGUMENTS
-bool BPLUSTREE_TYPE::IsEmpty() const { return true; }
+bool BPLUSTREE_TYPE::IsEmpty() const { 
+  //为空的两种情况：没有根节点、根节点为空
+  if(root_page_id_==IndexPageType::INVALID_INDEX_PAGE) return true;
+  BPlusTreePage rootpage=buffer_pool_manager_->FetchPageImpl(root_page_id_);
+  if(rootpage->GetSize()==0) return true;
+  return false; }
 /*****************************************************************************
  * SEARCH
  *****************************************************************************/
@@ -42,6 +47,26 @@ bool BPLUSTREE_TYPE::IsEmpty() const { return true; }
  */
 INDEX_TEMPLATE_ARGUMENTS
 bool BPLUSTREE_TYPE::GetValue(const KeyType &key, std::vector<ValueType> *result, Transaction *transaction) {
+  transaction=nullptr;
+  if(!IsEmpty()){
+    //初始化为根节点
+    page_id_t page_id=root_page_id_;
+    BPlusTreePage* page=buffer_pool_manager_->FetchPageImpl(page_id);
+    //如果是中间节点，则向下找含有该key的叶子节点
+    while(!page->IsLeafPage()){
+      auto page_id=page->Lookup(key,comparator_);
+      page=buffer_pool_manager_->FetchPageImpl(page_id);
+    }
+    //如果是叶子节点，则获取key进行判断
+    auto index=page->KeyIndex(key,comparator_);
+    //key存在则返回true，返回结果的引用
+    if(KeyAt(index)==key){
+      result=GetItem(index).second;
+      return true;
+    } 
+  }
+  //其他情况，返回false
+  result=nullptr;
   return false;
 }
 
