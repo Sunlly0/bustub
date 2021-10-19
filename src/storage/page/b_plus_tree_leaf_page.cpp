@@ -32,7 +32,7 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, in
   size_ = 0;
   parent_page_id_ = parent_id;
   page_id_ = page_id;
-  next_page_id_=INVALID_PAGE_ID;
+  next_page_id_ = INVALID_PAGE_ID;
   max_size_ = max_size;
 }
 
@@ -40,14 +40,10 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, in
  * Helper methods to set/get next page id
  */
 INDEX_TEMPLATE_ARGUMENTS
-page_id_t B_PLUS_TREE_LEAF_PAGE_TYPE::GetNextPageId() const {
-  return next_page_id_; 
-}
+page_id_t B_PLUS_TREE_LEAF_PAGE_TYPE::GetNextPageId() const { return next_page_id_; }
 
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::SetNextPageId(page_id_t next_page_id) {
-  next_page_id_=next_page_id;
-}
+void B_PLUS_TREE_LEAF_PAGE_TYPE::SetNextPageId(page_id_t next_page_id) { next_page_id_ = next_page_id; }
 
 /**
  * Helper method to find the first index i so that array[i].first >= key
@@ -73,10 +69,10 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator
   // return right;
 
   //使用顺序查找
-  for(int index=0;index<size_;index++){
-    if(comparator(array{index}.first,key)>=0) return index;
+  for (int index = 0; index < size_; index++) {
+    if (comparator(array[index].first, key) >= 0) return index;
   }
-  return 0; 
+  return 0;
 }
 
 /*
@@ -86,7 +82,7 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator
 INDEX_TEMPLATE_ARGUMENTS
 KeyType B_PLUS_TREE_LEAF_PAGE_TYPE::KeyAt(int index) const {
   // replace with your own code
-  KeyType key{};
+  KeyType key = arrar[index].first;
   return key;
 }
 
@@ -97,7 +93,7 @@ KeyType B_PLUS_TREE_LEAF_PAGE_TYPE::KeyAt(int index) const {
 INDEX_TEMPLATE_ARGUMENTS
 const MappingType &B_PLUS_TREE_LEAF_PAGE_TYPE::GetItem(int index) {
   // replace with your own code
-  return array[0];
+  return arrar[index];
 }
 
 /*****************************************************************************
@@ -109,7 +105,18 @@ const MappingType &B_PLUS_TREE_LEAF_PAGE_TYPE::GetItem(int index) {
  */
 INDEX_TEMPLATE_ARGUMENTS
 int B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(const KeyType &key, const ValueType &value, const KeyComparator &comparator) {
-  return 0;
+  //在调用insert之前做了判断，保证插入的key是唯一的
+  //找到恰好比待插入的key更大的Key'的位置，就是插入后key所在的位置
+  auto index = KeyIndex(key);
+  //插入键值对，对其后的所有键进行移位，保证有序
+  for (int i = size_; i > index_; i--) {
+    arrar[i + 1] = arrar[i];
+  }
+  arrar[index].first = key;
+  arrar[index].second = value;
+  // size加1并返回
+  this->IncreaseSize(1);
+  return GetSize();
 }
 
 /*****************************************************************************
@@ -119,13 +126,26 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(const KeyType &key, const ValueType &valu
  * Remove half of key & value pairs from this page to "recipient" page
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(BPlusTreeLeafPage *recipient) {}
+void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(BPlusTreeLeafPage *recipient) {
+  //叶子节点分裂的时候调用
+  auto num = GetSize - GetMinSize();
+  //此处是recipient将元素copy到自己,recipient从原节点（this）的num开始，复制剩下一半的页
+  recipient->CopyNFrom(this->array[num], num);
+  this->size_ = GetMinSize();
+  recipient->SetSize(num);
+}
 
 /*
  * Copy starting from items, and copy {size} number of elements into me.
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {}
+void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {
+  for (int i = 0; i < size; i++) {
+    // arrar[size_ + i] = items[i];
+    arrar[i] = items;
+    items++
+  }
+}
 
 /*****************************************************************************
  * LOOKUP
@@ -137,6 +157,15 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {}
  */
 INDEX_TEMPLATE_ARGUMENTS
 bool B_PLUS_TREE_LEAF_PAGE_TYPE::Lookup(const KeyType &key, ValueType *value, const KeyComparator &comparator) const {
+  //找有序数组中大于等于key的第一个index
+  auto index = KeyIndex(key);
+  // 1.如果index所属的key==key,查找成功，返回true;
+  if (comparator(KeyAt(index), key) == 0) {
+    value = GetItem(index).second;
+    return true;
+  }
+  // 2. 查找不成功，返回false
+  value = nullptr;
   return false;
 }
 

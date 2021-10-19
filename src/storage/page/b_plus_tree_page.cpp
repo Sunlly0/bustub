@@ -46,12 +46,12 @@ void BPlusTreePage::SetMaxSize(int size) { max_size_ = size; }
  * Helper method to get min page size
  * Generally, min page size == max page size / 2
  */
-int BPlusTreePage::GetMinSize() const { return ceil(max_size_ / 2); }
+int BPlusTreePage::GetMinSize() const { return max_size_ / 2 ; }
 
 /*
  * Helper methods to get/set parent page id
  */
-page_id_t BPlusTreePage::GetParentPageId() const { return 0; }
+page_id_t BPlusTreePage::GetParentPageId() const { return parent_page_id_; }
 void BPlusTreePage::SetParentPageId(page_id_t parent_page_id) { parent_page_id = parent_page_id_; }
 
 /*
