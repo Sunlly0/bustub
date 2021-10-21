@@ -18,7 +18,8 @@
 namespace bustub {
 
 #define B_PLUS_TREE_LEAF_PAGE_TYPE BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>
-#define LEAF_PAGE_HEADER_SIZE 28
+//增加指向前一个页面的page_id;将size从28修改成32
+#define LEAF_PAGE_HEADER_SIZE 32
 #define LEAF_PAGE_SIZE ((PAGE_SIZE - LEAF_PAGE_HEADER_SIZE) / sizeof(MappingType))
 
 /**
@@ -48,6 +49,9 @@ class BPlusTreeLeafPage : public BPlusTreePage {
   // helper methods
   page_id_t GetNextPageId() const;
   void SetNextPageId(page_id_t next_page_id);
+  //增加指向左边页面的帮助函数
+  page_id_t GetPrePageId() const;
+  void SetPrePageId(page_id_t pre_page_id);
   KeyType KeyAt(int index) const;
   int KeyIndex(const KeyType &key, const KeyComparator &comparator) const;
   const MappingType &GetItem(int index);
@@ -67,7 +71,11 @@ class BPlusTreeLeafPage : public BPlusTreePage {
   void CopyNFrom(MappingType *items, int size);
   void CopyLastFrom(const MappingType &item);
   void CopyFirstFrom(const MappingType &item);
+
+
   page_id_t next_page_id_;
+  //增加指向前一个页面的page_id;
+  page_id_t pre_page_id_;
   MappingType array[0];
 };
 }  // namespace bustub

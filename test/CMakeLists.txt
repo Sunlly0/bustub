@@ -5,22 +5,22 @@ file(GLOB BUSTUB_TEST_SOURCES "${PROJECT_SOURCE_DIR}/test/*/*test.cpp")
 ######################################################################################################################
 
 # valgrind
-find_program(VALGRIND_BIN valgrind)
-if ("${VALGRIND_BIN}" STREQUAL "VALGRIND_BIN-NOTFOUND")
-    message(WARNING "BusTub/test couldn't find valgrind.")
-else()
-    message(STATUS "BusTub/test found valgrind at ${VALGRIND_BIN}")
-endif()
-
-set(VALGRIND_OPTIONS
-        --error-exitcode=1                      # if leaks are detected, return nonzero value
-        # --gen-suppressions=all  # uncomment for leak suppression syntax
-        --leak-check=full                       # detailed leak information
-        --soname-synonyms=somalloc=*jemalloc*   # also intercept jemalloc
-        --trace-children=yes                    # trace child processes
-        --track-origins=yes                     # track origin of uninitialized values
-        )
-set(VALGRIND_SUPPRESSIONS_FILE "${PROJECT_SOURCE_DIR}/build_support/valgrind.supp")
+#find_program(VALGRIND_BIN valgrind)
+#if ("${VALGRIND_BIN}" STREQUAL "VALGRIND_BIN-NOTFOUND")
+#    message(WARNING "BusTub/test couldn't find valgrind.")
+#else()
+#    message(STATUS "BusTub/test found valgrind at ${VALGRIND_BIN}")
+#endif()
+#
+#set(VALGRIND_OPTIONS
+#        --error-exitcode=1                      # if leaks are detected, return nonzero value
+#        # --gen-suppressions=all  # uncomment for leak suppression syntax
+#        --leak-check=full                       # detailed leak information
+#        --soname-synonyms=somalloc=*jemalloc*   # also intercept jemalloc
+#        --trace-children=yes                    # trace child processes
+#        --track-origins=yes                     # track origin of uninitialized values
+#        )
+#set(VALGRIND_SUPPRESSIONS_FILE "${PROJECT_SOURCE_DIR}/build_support/valgrind.supp")
 
 ######################################################################################################################
 # MAKE TARGETS
