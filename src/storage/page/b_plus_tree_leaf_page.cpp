@@ -28,12 +28,12 @@ namespace bustub {
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, int max_size) {
-  page_type_ = IndexPageType::LEAF_PAGE;
-  size_ = 0;
-  parent_page_id_ = parent_id;
-  page_id_ = page_id;
-  next_page_id_ = INVALID_PAGE_ID;
-  max_size_ = max_size;
+  SetPageType(IndexPageType::LEAF_PAGE);
+  SetSize(0);
+  SetParentPageId(parent_id);
+  SetPageId(page_id);
+  SetNextPageId(INVALID_PAGE_ID);
+  SetMaxSize(max_size);
 }
 
 /**
@@ -69,7 +69,7 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator
   // return right;
 
   //使用顺序查找
-  for (int index = 0; index < size_; index++) {
+  for (int index = 0; index < GetSize(); index++) {
     if (comparator(array[index].first, key) >= 0) return index;
   }
   return 0;
@@ -82,7 +82,7 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator
 INDEX_TEMPLATE_ARGUMENTS
 KeyType B_PLUS_TREE_LEAF_PAGE_TYPE::KeyAt(int index) const {
   // replace with your own code
-  KeyType key = arrar[index].first;
+  KeyType key = array[index].first;
   return key;
 }
 
@@ -93,7 +93,7 @@ KeyType B_PLUS_TREE_LEAF_PAGE_TYPE::KeyAt(int index) const {
 INDEX_TEMPLATE_ARGUMENTS
 const MappingType &B_PLUS_TREE_LEAF_PAGE_TYPE::GetItem(int index) {
   // replace with your own code
-  return arrar[index];
+  return array[index];
 }
 
 /*****************************************************************************
@@ -107,13 +107,13 @@ INDEX_TEMPLATE_ARGUMENTS
 int B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(const KeyType &key, const ValueType &value, const KeyComparator &comparator) {
   //在调用insert之前做了判断，保证插入的key是唯一的
   //找到恰好比待插入的key更大的Key'的位置，就是插入后key所在的位置
-  auto index = KeyIndex(key);
+  auto index = KeyIndex(key,comparator);
   //插入键值对，对其后的所有键进行移位，保证有序
-  for (int i = size_; i > index_; i--) {
-    arrar[i + 1] = arrar[i];
+  for (int i = GetSize(); i > index; i--) {
+    array[i + 1] = array[i];
   }
-  arrar[index].first = key;
-  arrar[index].second = value;
+  array[index].first = key;
+  array[index].second = value;
   // size加1并返回
   this->IncreaseSize(1);
   return GetSize();
@@ -128,10 +128,10 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(const KeyType &key, const ValueType &valu
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(BPlusTreeLeafPage *recipient) {
   //叶子节点分裂的时候调用
-  auto num = GetSize - GetMinSize();
+  auto num = GetSize() - GetMinSize();
   //此处是recipient将元素copy到自己,recipient从原节点（this）的num开始，复制剩下一半的页
-  recipient->CopyNFrom(this->array[num], num);
-  this->size_ = GetMinSize();
+  recipient->CopyNFrom(&(this->array[num]), num);
+  SetSize( GetMinSize());
   recipient->SetSize(num);
 }
 
@@ -141,9 +141,9 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(BPlusTreeLeafPage *recipient) {
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {
   for (int i = 0; i < size; i++) {
-    // arrar[size_ + i] = items[i];
-    arrar[i] = items;
-    items++
+    // array[size_ + i] = items[i];
+    array[i] = *items;
+    items++;
   }
 }
 
@@ -158,10 +158,10 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {
 INDEX_TEMPLATE_ARGUMENTS
 bool B_PLUS_TREE_LEAF_PAGE_TYPE::Lookup(const KeyType &key, ValueType *value, const KeyComparator &comparator) const {
   //找有序数组中大于等于key的第一个index
-  auto index = KeyIndex(key);
+  auto index = KeyIndex(key,comparator);
   // 1.如果index所属的key==key,查找成功，返回true;
   if (comparator(KeyAt(index), key) == 0) {
-    value = GetItem(index).second;
+    *value = array[index].second;
     return true;
   }
   // 2. 查找不成功，返回false
