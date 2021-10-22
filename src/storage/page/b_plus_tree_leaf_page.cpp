@@ -210,7 +210,23 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::RemoveAndDeleteRecord(const KeyType &key, const 
  * to update the next_page id in the sibling page
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveAllTo(BPlusTreeLeafPage *recipient) {}
+void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveAllTo(BPlusTreeLeafPage *recipient) {
+  //node和rsibling合并，node全部元素挪至rsibling并即将删除本节点。
+  //recipient向后挪动size位
+  for(int i=this->GetSize()+recipient->GetSize()-1;i>this->GetSize();i--){
+    recipient->array[i]=recipient->array[i-this->GetSize()];
+  }
+  //recipient的前size位从本节点中复制补全
+  for(int i=0;i<this->GetSize()-1;i++){
+    recipient->array[i]=this->array[i];
+  }
+  //修改大小
+  this->SetSize(0);
+  recipient->IncreaseSize(this->GetSize());
+  recipient->SetNextPageId(this->GetNextPageId());
+  recipient->SetPrePageId(this->GetPrePageId());
+
+}
 
 /*****************************************************************************
  * REDISTRIBUTE

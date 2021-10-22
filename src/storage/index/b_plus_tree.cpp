@@ -315,20 +315,22 @@ bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
     LeafPage *lsibling = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(lleaf_page_id));
     auto rleaf_page_id=node->GetNextPageId();
     LeafPage *rsibling = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(rleaf_page_id));
-    //判断是否可以从左边兄弟借元素
+    //1.判断是否可以从左边兄弟借元素
     if(lsibling->GetSize()+leaf->GetSize()>leaf_max_size_) {
       Redistribute(lsibling, leaf, 1);
-    }else if(rsibling->GetSize()+leaf->GetSize()>leaf_max_size_) {
+    }
+    //2.左兄弟不能借，判断能否从右边兄弟借元素
+    else if(rsibling->GetSize()+leaf->GetSize()>leaf_max_size_) {
       Redistribute(rsibling, leaf, 0);
     }
+    //3. 左右两边都不能借元素，做合并操作
     else{
       InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(leaf->GetParentPageId()));
-      Coalesce(rsibling,leaf,ppage,0);
+      auto index=ppage->ValueAt(node->GetPageId());
+      Coalesce(rsibling,leaf,ppage,index);
       return true;
     }
   }
-
-
   return false;
 }
 
@@ -350,6 +352,15 @@ bool BPLUSTREE_TYPE::Coalesce(N **neighbor_node, N **node,
                               BPlusTreeInternalPage<KeyType, page_id_t, KeyComparator> **parent, int index,
                               Transaction *transaction) {
   transaction= nullptr;
+  node->MoveAllTo(neighbor_node);
+  buffer_pool_manager_->DeletePage(node->GetPageId());
+  //父亲节点删除node页面
+  parent->Remove(index);
+  //1. 如果删除后，父节点size不满足最小条件，父节点借元素或合并
+  if(parent->GetSize()<parent->GetMinSize()){
+    return CoalesceOrRedistribute(parent);
+  }
+  //2. 如果满足最小值条件，删除结束
   return false;
 }
 

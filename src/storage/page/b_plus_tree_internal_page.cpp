@@ -192,14 +192,12 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyNFrom(MappingType *items, int size, Buf
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Remove(int index) {
-  // for (int i = index; i < GetSize(); i++) {
-  //   //从后往前移位
-  //   array[i] = array[i + 1];
-  //   // if(i==size_) array[i]{};
-  // }
-  // array[size_]
-  //将最后一位清空
-  // IncreaseSize(-1);
+   for (int i = index; i < GetSize(); i++) {
+     //从后往前移位
+     array[i] = array[i + 1];
+   }
+   //Q: 是否需要将删除位清空？
+   IncreaseSize(-1);
 }
 
 /*
@@ -235,6 +233,29 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveAllTo(BPlusTreeInternalPage *recipient,
   // this->IncreaseSize(recipient->size_);
   // Q:如何处理recipient数组的清除和添加middle_key?
   // buffer_pool_manager->DeletePage(recipinent->page_id);
+  //node和rsibling合并，node全部元素挪至rsibling并即将删除本节点。
+  //recipient向后挪动size位
+
+  for(int i=this->GetSize()+recipient->GetSize()-1;i>this->GetSize();i--){
+    recipient->array[i]=recipient->array[i-this->GetSize()];
+  }
+  //recipient的前size位从本节点中复制补全
+  for(int i=0;i<this->GetSize()-1;i++){
+    recipient->array[i]=this->array[i];
+  }
+
+  //增加middle_key
+  recipient->SetKeyAt(this->GetSize(),middle_key);
+  //对于待删除节点的子节点，均修改其父亲节点指针为recipient。并且写出到磁盘做持久化
+  for(int i=0;i<this->GetSize();i++){
+    BPlusTreePage *cpage=reinterpret_cast<BPlusTreePage *>(buffer_pool_manager->FetchPage(ValueAt(i)));
+    cpage->SetParentPageId(recipient->GetPageId());
+    buffer_pool_manager->UnpinPage(cpage->GetParentPageId(),true);
+    buffer_pool_manager->FlushPage(cpage->GetParentPageId());
+  }
+  //修改大小
+  this->SetSize(0);
+  recipient->IncreaseSize(this->GetSize());
 }
 
 /*****************************************************************************
@@ -251,19 +272,18 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveAllTo(BPlusTreeInternalPage *recipient,
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveFirstToEndOf(BPlusTreeInternalPage *recipient, const KeyType &middle_key,
                                                       BufferPoolManager *buffer_pool_manager) {
-  // // Q:被旁边的节点借键值对的情况？
-  // auto pair = array[0];
-  // //将第一个键值对加在recipient页之后
-  // recipient->IncreaseSize(1);
-  // recipient->array[size_] = pair;
-  // //对于自己，数组往前移动一位
-  // for (int index = 0; index < size_; index++) {
-  //   array[index] = array[index + 1];
-  // }
-  // size_--;
-  // //更新middle_key并且将父节点写出到磁盘
-  // middle_key = std::get<0>(pair);
-  // buffer_pool_manager->FlushPage(parent_page_id_);
+  //自己是右兄弟节点，将自己首元素借给左边节点末尾
+  recipient->CopyLastFrom(this->array[0],buffer_pool_manager);
+  for (int i = 0; i <GetSize(); i++) {
+    array[i] = array[i+1];
+  }
+  this->IncreaseSize(-1);
+  recipient->SetKeyAt(recipient->GetSize()-1,middle_key);
+  //更新父节点中对应的middle_key并且写出到磁盘
+  BPlusTreeInternalPage *ppage = reinterpret_cast<BPlusTreeInternalPage *>(buffer_pool_manager->FetchPage(this->GetParentPageId()));
+  ppage->SetKeyAt(ValueIndex(this->GetPageId()),this->KeyAt(0));
+  buffer_pool_manager->UnpinPage(this->GetParentPageId(),true);
+  buffer_pool_manager->FlushPage(this->GetParentPageId());
 }
 
 /* Append an entry at the end.
@@ -272,7 +292,14 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveFirstToEndOf(BPlusTreeInternalPage *rec
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyLastFrom(const MappingType &pair, BufferPoolManager *buffer_pool_manager) {
-  // buffer_pool_manager->FlushPage(page_id_);
+  //将item插入所有元素之后，不用移位
+  array[GetSize()]=pair;
+  this->IncreaseSize(1);
+  //传入键值对的子节点的父亲节点改变，做持久化
+  BPlusTreePage *cpage=reinterpret_cast<BPlusTreePage *>(buffer_pool_manager->FetchPage(pair.second));
+  cpage->SetParentPageId(this->GetPageId());
+  buffer_pool_manager->UnpinPage(pair.second,true);
+  buffer_pool_manager->FlushPage(pair.second);
 }
 
 /*
@@ -285,19 +312,15 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyLastFrom(const MappingType &pair, Buffe
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveLastToFrontOf(BPlusTreeInternalPage *recipient, const KeyType &middle_key,
                                                        BufferPoolManager *buffer_pool_manager) {
-  // // Q:被旁边的节点借键值对的情况？
-  // auto pair = array[size_];
-  // //数组往后移动一位
-  // for (int index = 0; index < recipient->size_; index++) {
-  //   recipient->array[index + 1] = recipient->array[index];
-  // }
-  // //将第一个键值对加在recipient页之后
-  // recipient->IncreaseSize(1);
-  // recipient->array[0] = pair;
-  // size_--;
-  // //更新middle_key并且将父节点写出到磁盘
-  // middle_key = std::get<0>(pair);
-  // // buffer_pool_manager->FlushPage(parent_page_id_);
+  //自己是左兄弟节点，将自己末尾元素借给右边节点首
+  recipient->CopyFirstFrom(this->array[GetSize()-1],buffer_pool_manager);
+  this->IncreaseSize(-1);
+  recipient->SetKeyAt(1,middle_key);
+  //更新父节点中对应的middle_key并且写出到磁盘
+  BPlusTreeInternalPage *ppage = reinterpret_cast<BPlusTreeInternalPage *>(buffer_pool_manager->FetchPage(recipient->GetParentPageId()));
+  ppage->SetKeyAt(ValueIndex(recipient->GetPageId()),recipient->KeyAt(0));
+  buffer_pool_manager->UnpinPage(recipient->GetParentPageId(),true);
+  buffer_pool_manager->FlushPage(recipient->GetParentPageId());
 }
 
 /* Append an entry at the beginning.
@@ -305,7 +328,19 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveLastToFrontOf(BPlusTreeInternalPage *re
  * So I need to 'adopt' it by changing its parent page id, which needs to be persisted with BufferPoolManger
  */
 INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyFirstFrom(const MappingType &pair, BufferPoolManager *buffer_pool_manager) {}
+void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyFirstFrom(const MappingType &pair, BufferPoolManager *buffer_pool_manager) {
+  //将item插入所有元素之后，不用移位
+  for (int i = GetSize()-1; i >0; i--) {
+    array[i + 1] = array[i];
+  }
+  array[0]=pair;
+  this->IncreaseSize(1);
+  //传入键值对的子节点的父亲节点改变，做持久化
+  BPlusTreePage *cpage=reinterpret_cast<BPlusTreePage *>(buffer_pool_manager->FetchPage(pair.second));
+  cpage->SetParentPageId(this->GetPageId());
+  buffer_pool_manager->UnpinPage(pair.second,true);
+  buffer_pool_manager->FlushPage(pair.second);
+}
 
 // valuetype for internalNode should be page id_t
 template class BPlusTreeInternalPage<GenericKey<4>, page_id_t, GenericComparator<4>>;
