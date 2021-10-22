@@ -176,8 +176,8 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyNFrom(MappingType *items, int size, Buf
     //子节点的父亲节点改变
     auto cpage=reinterpret_cast<B_PLUS_TREE_INTERNAL_PAGE_TYPE *>(buffer_pool_manager->FetchPage(items->second));
     cpage->SetParentPageId(this->GetPageId());
-    // buffer_pool_manager->UnpinPage(items.second,true);
-    // buffer_pool_manager->FlushPage(items.second);
+     buffer_pool_manager->UnpinPage(items->second,true);
+     buffer_pool_manager->FlushPage(items->second);
     items++;
   }
 }
@@ -226,16 +226,6 @@ ValueType B_PLUS_TREE_INTERNAL_PAGE_TYPE::RemoveAndReturnOnlyChild() {
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveAllTo(BPlusTreeInternalPage *recipient, const KeyType &middle_key,
                                                BufferPoolManager *buffer_pool_manager) {
-  // auto index = KeyAt(middle_key);
-  // for (int i = 0; i < recipient->size_; i++) {
-  //   array[index + 0] = recipient->array[index];
-  // }
-  // this->IncreaseSize(recipient->size_);
-  // Q:如何处理recipient数组的清除和添加middle_key?
-  // buffer_pool_manager->DeletePage(recipinent->page_id);
-  //node和rsibling合并，node全部元素挪至rsibling并即将删除本节点。
-  //recipient向后挪动size位
-
   for(int i=this->GetSize()+recipient->GetSize()-1;i>this->GetSize();i--){
     recipient->array[i]=recipient->array[i-this->GetSize()];
   }
@@ -248,7 +238,7 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveAllTo(BPlusTreeInternalPage *recipient,
   recipient->SetKeyAt(this->GetSize(),middle_key);
   //对于待删除节点的子节点，均修改其父亲节点指针为recipient。并且写出到磁盘做持久化
   for(int i=0;i<this->GetSize();i++){
-    BPlusTreePage *cpage=reinterpret_cast<BPlusTreePage *>(buffer_pool_manager->FetchPage(ValueAt(i)));
+    BPlusTreePage *cpage=reinterpret_cast<BPlusTreePage *>(buffer_pool_manager->FetchPage(this->ValueAt(i)));
     cpage->SetParentPageId(recipient->GetPageId());
     buffer_pool_manager->UnpinPage(cpage->GetParentPageId(),true);
     buffer_pool_manager->FlushPage(cpage->GetParentPageId());
