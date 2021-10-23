@@ -34,11 +34,11 @@ INDEX_TEMPLATE_ARGUMENTS
 bool BPLUSTREE_TYPE::IsEmpty() const {
   //为空的两种情况：没有根节点、根节点为空
   if (root_page_id_ == INVALID_PAGE_ID) return true;
-  BPlusTreePage *rootpage = reinterpret_cast<BPlusTreePage *>(buffer_pool_manager_->FetchPage(root_page_id_));
-  if (rootpage->GetSize() == 0) {
-    buffer_pool_manager_->UnpinPage(root_page_id_, false);
-    return true;
-  }
+//  BPlusTreePage *rootpage = reinterpret_cast<BPlusTreePage *>(buffer_pool_manager_->FetchPage(root_page_id_));
+//  if (rootpage->GetSize() == 0) {
+//    buffer_pool_manager_->UnpinPage(root_page_id_, false);
+//    return true;
+//  }
   return false;
 }
 /*****************************************************************************
@@ -118,6 +118,8 @@ void BPLUSTREE_TYPE::StartNewTree(const KeyType &key, const ValueType &value) {
   if (newpage == nullptr) throw Exception(ExceptionType::OUT_OF_MEMORY, "Out of memory");
   // 2. newpage成功, 按根节点初始化该页
   newpage->Init(root_page_id_);
+  //更新tree的头文件信息中的root_page_id
+  UpdateRootPageId(1);
   newpage->Insert(key, value, comparator_);
   buffer_pool_manager_->UnpinPage(root_page_id_, true);
 }
@@ -184,27 +186,40 @@ INDEX_TEMPLATE_ARGUMENTS
 template <typename N>
 N *BPLUSTREE_TYPE::Split(N *node) {
   page_id_t newpage_id;
-  BPlusTreePage *newfetchpage = reinterpret_cast<BPlusTreePage *>(buffer_pool_manager_->NewPage(&newpage_id));
-  if (newfetchpage == nullptr) throw Exception(ExceptionType::OUT_OF_MEMORY, "Out of memory");
-  N *newpage;
+  //新建一个页
+  BPlusTreePage *newpage = reinterpret_cast<BPlusTreePage *>(buffer_pool_manager_->NewPage(&newpage_id));
+  if (newpage == nullptr) throw Exception(ExceptionType::OUT_OF_MEMORY, "Out of memory");
+  N *newpagereturn;
   BPlusTreePage *page = reinterpret_cast<BPlusTreePage *>(node);
   // 1. 如果是叶子节点
   if (page->IsLeafPage()) {
     LeafPage *leaf = reinterpret_cast<LeafPage *>(page);
-    LeafPage *newleaf = reinterpret_cast<LeafPage *>(newfetchpage);
+    LeafPage *newleaf = reinterpret_cast<LeafPage *>(newpage);
+    //初始化新叶子页
+    newleaf->Init(newpage_id,leaf->GetParentPageId(),leaf_max_size_);
+    //原叶子页移动后一半元素到新页
     leaf->MoveHalfTo(newleaf);
+    //设置叶子节点的双向链表
+    newleaf->SetNextPageId(leaf->GetNextPageId());
     leaf->SetNextPageId(newpage_id);
-    newpage = reinterpret_cast<N *>(newleaf);
+    newleaf->SetPrePageId(leaf->GetPageId());
+    //Q:增加向前的指针后，在设置双向链表的时候需要增加new后一个节点向前的设置？？
+    LeafPage *after_leaf = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(newleaf->GetNextPageId()));
+    after_leaf->SetPrePageId(newpage_id);
+    buffer_pool_manager_->UnpinPage(after_leaf->GetPageId(),true);
+    newpagereturn=reinterpret_cast<N *>(newleaf);
   }
   // 2. 如果是内部节点，索引改变后要做持久化操作
   else {
     InternalPage *inner = reinterpret_cast<InternalPage *>(page);
-    InternalPage *newinner = reinterpret_cast<InternalPage *>(newfetchpage);
+    InternalPage *newinner = reinterpret_cast<InternalPage *>(newpage);
+    newinner->Init(newpage_id,inner->GetParentPageId(),internal_max_size_);
     inner->MoveHalfTo(newinner, buffer_pool_manager_);
-    newpage = reinterpret_cast<N *>(newinner);
+    newpagereturn=reinterpret_cast<N *>(newinner);
   }
   buffer_pool_manager_->UnpinPage(newpage_id, true);
-  return newpage;
+  return newpagereturn;
+
 }
 
 /*
@@ -224,13 +239,14 @@ void BPLUSTREE_TYPE::InsertIntoParent(BPlusTreePage *old_node, const KeyType &ke
   // 1. 如果父节点为空，就说明分裂的节点已经是根节点。需要新建一个根节点
   // Q: 此处是否要调用bpm新取页？
   // A: 是的，并且新建的根节点一定是中间页
-  if (ppage_id == INVALID_PAGE_ID) {
+  if (old_node->IsRootPage()) {
     InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->NewPage(&ppage_id));
-    ppage->Init(ppage_id);
+    ppage->Init(ppage_id,INVALID_PAGE_ID,internal_max_size_);
     ppage->PopulateNewRoot(old_node->GetPageId(), key, new_node->GetPageId());
     //设置分裂新旧节点的父亲为ppage
     old_node->SetPageId(ppage_id);
     new_node->SetPageId(ppage_id);
+    UpdateRootPageId(0);//跟新根节点id
     this->root_page_id_ = ppage_id;
   }
   // 2. 如果父节点不为空
@@ -315,9 +331,9 @@ bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
   //叶子节点
   if(node->IsLeafPage()){
     LeafPage *leaf = reinterpret_cast<LeafPage *>(node);
+    auto rleaf_page_id=leaf->GetNextPageId();
     auto lleaf_page_id=leaf->GetPrePageId();
     LeafPage *lsibling = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(lleaf_page_id));
-    auto rleaf_page_id=leaf->GetNextPageId();
     LeafPage *rsibling = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(rleaf_page_id));
     //1.判断是否可以从左边兄弟借元素
     if(lsibling->GetSize()+leaf->GetSize()>leaf_max_size_) {
@@ -379,11 +395,17 @@ bool BPLUSTREE_TYPE::Coalesce(N **neighbor_node, N **node,
                               BPlusTreeInternalPage<KeyType, page_id_t, KeyComparator> **parent, int index,
                               Transaction *transaction) {
   transaction= nullptr;
+  //1. 如果是叶子节点，调用叶子节点的moveallto,将本节点的全部元素移动给兄弟节点
   if((*node)->IsLeafPage()){
-    (*node)->MoveAllTo(*neighbor_node);
+    LeafPage *leaf = reinterpret_cast<LeafPage *>(*node);
+    LeafPage *n_leaf = reinterpret_cast<LeafPage *>(*neighbor_node);
+    leaf->MoveAllTo(n_leaf);
   }
+  //2.如果是内部节点，调用内部节点的moveallto，对被移动的子节点做索引持久化
   else{
-    (*node)->MoveAllTo(*neighbor_node,(*neighbor_node)->KeyAt(0),buffer_pool_manager_);
+    InternalPage *inner = reinterpret_cast<InternalPage *>(*node);
+    InternalPage *n_inner = reinterpret_cast<InternalPage *>(*neighbor_node);
+    inner->MoveAllTo(n_inner,n_inner->KeyAt(0),buffer_pool_manager_);
   }
   buffer_pool_manager_->DeletePage((*node)->GetPageId());
   //父亲节点删除node页面
@@ -477,7 +499,11 @@ bool BPLUSTREE_TYPE::AdjustRoot(BPlusTreePage *old_root_node) {
  * @return : index iterator
  */
 INDEX_TEMPLATE_ARGUMENTS
-INDEXITERATOR_TYPE BPLUSTREE_TYPE::begin() { return INDEXITERATOR_TYPE(); }
+INDEXITERATOR_TYPE BPLUSTREE_TYPE::begin() {
+  Page *page= FindLeafPage(KeyType{},true);
+  LeafPage *leftmost_leaf=reinterpret_cast<LeafPage *>(page);
+  buffer_pool_manager_->UnpinPage(leftmost_leaf->GetPageId(), false);
+  return INDEXITERATOR_TYPE(leftmost_leaf,0,buffer_pool_manager_); }
 
 /*
  * Input parameter is low key, find the leaf page that contains the input key
@@ -485,7 +511,12 @@ INDEXITERATOR_TYPE BPLUSTREE_TYPE::begin() { return INDEXITERATOR_TYPE(); }
  * @return : index iterator
  */
 INDEX_TEMPLATE_ARGUMENTS
-INDEXITERATOR_TYPE BPLUSTREE_TYPE::Begin(const KeyType &key) { return INDEXITERATOR_TYPE(); }
+INDEXITERATOR_TYPE BPLUSTREE_TYPE::Begin(const KeyType &key) {
+  Page *page= FindLeafPage(key, false);
+  LeafPage *leaf=reinterpret_cast<LeafPage *>(page);
+  auto index=leaf->KeyIndex(key,comparator_);
+  buffer_pool_manager_->UnpinPage(leaf->GetPageId(), false);
+  return INDEXITERATOR_TYPE(leaf,index,buffer_pool_manager_); }
 
 /*
  * Input parameter is void, construct an index iterator representing the end
@@ -493,7 +524,17 @@ INDEXITERATOR_TYPE BPLUSTREE_TYPE::Begin(const KeyType &key) { return INDEXITERA
  * @return : index iterator
  */
 INDEX_TEMPLATE_ARGUMENTS
-INDEXITERATOR_TYPE BPLUSTREE_TYPE::end() { return INDEXITERATOR_TYPE(); }
+INDEXITERATOR_TYPE BPLUSTREE_TYPE::end() {
+  Page *page= FindLeafPage(KeyType(), true);
+  LeafPage *leaf=reinterpret_cast<LeafPage *>(page);
+  while(leaf->GetNextPageId()!=INVALID_PAGE_ID){
+    LeafPage *next_leaf=reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(leaf->GetNextPageId()));
+    buffer_pool_manager_->UnpinPage(leaf->GetPageId(), false);
+    leaf=next_leaf;
+  }
+  buffer_pool_manager_->UnpinPage(leaf->GetPageId(), false);
+  return INDEXITERATOR_TYPE(leaf,leaf->GetSize(),buffer_pool_manager_);;
+}
 
 /*****************************************************************************
  * UTILITIES AND DEBUG

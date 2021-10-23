@@ -52,6 +52,7 @@ class BPlusTreeLeafPage : public BPlusTreePage {
   //增加指向左边页面的帮助函数
   page_id_t GetPrePageId() const;
   void SetPrePageId(page_id_t pre_page_id);
+
   KeyType KeyAt(int index) const;
   int KeyIndex(const KeyType &key, const KeyComparator &comparator) const;
   const MappingType &GetItem(int index);

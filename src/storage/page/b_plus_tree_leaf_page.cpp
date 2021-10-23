@@ -79,7 +79,7 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::KeyIndex(const KeyType &key, const KeyComparator
   for (int index = 0; index < GetSize(); index++) {
     if (comparator(array[index].first, key) >= 0) return index;
   }
-  return 0;
+  return GetSize();
 }
 
 /*
@@ -116,7 +116,7 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(const KeyType &key, const ValueType &valu
   //找到恰好比待插入的key更大的Key'的位置，就是插入后key所在的位置
   auto index = KeyIndex(key,comparator);
   //插入键值对，对其后的所有键进行移位，保证有序
-  for (int i = GetSize()-1; i > index; i--) {
+  for (int i = GetSize()-1; i >= index; i--) {
     array[i + 1] = array[i];
   }
   array[index].first = key;
@@ -137,8 +137,10 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(BPlusTreeLeafPage *recipient) {
   //叶子节点分裂的时候调用
   auto num = GetSize() - GetMinSize();
   //此处是recipient将元素copy到自己,recipient从原节点（this）的num开始，复制剩下一半的页
-  recipient->CopyNFrom(&(this->array[num]), num);
-  SetSize( GetMinSize());
+//  recipient->CopyNFrom(&(this->array[num]), num);
+//  recipient->CopyNFrom(&(array[GetMinSize()]), num);
+  recipient->CopyNFrom(array+GetMinSize(), num);
+  this->SetSize( GetMinSize());
   recipient->SetSize(num);
 }
 
@@ -149,8 +151,10 @@ INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {
   for (int i = 0; i < size; i++) {
     // array[size_ + i] = items[i];
-    array[i] = *items;
-    items++;
+    array[i]=items[i];
+//    array[i].first=items->first;
+//    array[i].second=items->second;
+//    items++;
   }
 }
 
