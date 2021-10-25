@@ -68,9 +68,9 @@ bool BPLUSTREE_TYPE::GetValue(const KeyType &key, std::vector<ValueType> *result
     }
     LeafPage *leaf = reinterpret_cast<LeafPage *>(page);
     //找到叶子节点，则调用Lookup函数，返回查找的bool结果
-    ValueType *v=nullptr;
-    auto isexist = leaf->Lookup(key, v, comparator_);
-    result->push_back(*v);
+    RID v;
+    auto isexist = leaf->Lookup(key, &v, comparator_);
+    result->push_back(v);
     buffer_pool_manager_->UnpinPage(page_id, false);
 
     return isexist;
@@ -117,7 +117,7 @@ void BPLUSTREE_TYPE::StartNewTree(const KeyType &key, const ValueType &value) {
   // 1.如果无法new一个page，则内存空间已满
   if (newpage == nullptr) throw Exception(ExceptionType::OUT_OF_MEMORY, "Out of memory");
   // 2. newpage成功, 按根节点初始化该页
-  newpage->Init(root_page_id_);
+  newpage->Init(root_page_id_,INVALID_PAGE_ID,leaf_max_size_);
   //更新tree的头文件信息中的root_page_id
   UpdateRootPageId(1);
   newpage->Insert(key, value, comparator_);
@@ -152,12 +152,9 @@ bool BPLUSTREE_TYPE::InsertIntoLeaf(const KeyType &key, const ValueType &value, 
   }
   LeafPage *leaf = reinterpret_cast<LeafPage *>(page);
   //如果是叶子节点，则判断key是否已经存在
-  ValueType *v=nullptr;
-  bool isexist=leaf->Lookup(key,v,comparator_);
-  // LeafPage *leaf = reinterpret_cast<LeafPage *>(page);
-  // auto index = leaf->KeyIndex(key, comparator_);
-  // KeyType keynow = leaf->KeyAt(index);
-  // bool isexist = (comparator_(keynow, key) == 0);
+   auto index = leaf->KeyIndex(key, comparator_);
+   KeyType keynow = leaf->KeyAt(index);
+   bool isexist = (comparator_(keynow, key) == 0);
   // 1. 如果key不存在，则插入
   if (!isexist) {
     auto size = leaf->Insert(key, value, comparator_);
@@ -199,14 +196,9 @@ N *BPLUSTREE_TYPE::Split(N *node) {
     newleaf->Init(newpage_id,leaf->GetParentPageId(),leaf_max_size_);
     //原叶子页移动后一半元素到新页
     leaf->MoveHalfTo(newleaf);
-    //设置叶子节点的双向链表
+    //设置叶子节点的单向链表
     newleaf->SetNextPageId(leaf->GetNextPageId());
     leaf->SetNextPageId(newpage_id);
-    newleaf->SetPrePageId(leaf->GetPageId());
-    //Q:增加向前的指针后，在设置双向链表的时候需要增加new后一个节点向前的设置？？
-    LeafPage *after_leaf = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(newleaf->GetNextPageId()));
-    after_leaf->SetPrePageId(newpage_id);
-    buffer_pool_manager_->UnpinPage(after_leaf->GetPageId(),true);
     newpagereturn=reinterpret_cast<N *>(newleaf);
   }
   // 2. 如果是内部节点，索引改变后要做持久化操作
@@ -239,7 +231,7 @@ void BPLUSTREE_TYPE::InsertIntoParent(BPlusTreePage *old_node, const KeyType &ke
   // 1. 如果父节点为空，就说明分裂的节点已经是根节点。需要新建一个根节点
   // Q: 此处是否要调用bpm新取页？
   // A: 是的，并且新建的根节点一定是中间页
-  if (old_node->IsRootPage()) {
+  if (ppage_id==INVALID_PAGE_ID) {
     InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->NewPage(&ppage_id));
     ppage->Init(ppage_id,INVALID_PAGE_ID,internal_max_size_);
     ppage->PopulateNewRoot(old_node->GetPageId(), key, new_node->GetPageId());
@@ -303,9 +295,11 @@ void BPLUSTREE_TYPE::Remove(const KeyType &key, Transaction *transaction) {
       InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(leaf->GetParentPageId()));
       auto index=ppage->ValueIndex(page_id);
       ppage->SetKeyAt(index,leaf->KeyAt(0));
+      buffer_pool_manager_->UnpinPage(leaf->GetParentPageId(),true);
       //对删除后叶子节点的size进行判断
       //2.1.1. 删除后，叶子节点的size不满足最小值，向兄弟节点借元素或合并
       if(size<leaf->GetMinSize()){
+        //返回页面是否删除。实际的删除在Coalesce中执行。
         CoalesceOrRedistribute(leaf);
       }
       //2.1.2.满足条件，删除结束
@@ -325,52 +319,52 @@ INDEX_TEMPLATE_ARGUMENTS
 template <typename N>
 bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
   transaction= nullptr;
+  //0.如果是根节点，使用根节点的特殊的判断规则
   if(node->IsRootPage()){
     return AdjustRoot(node);
   }
-  //叶子节点
-  if(node->IsLeafPage()){
-    LeafPage *leaf = reinterpret_cast<LeafPage *>(node);
-    auto rleaf_page_id=leaf->GetNextPageId();
-    auto lleaf_page_id=leaf->GetPrePageId();
-    LeafPage *lsibling = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(lleaf_page_id));
-    LeafPage *rsibling = reinterpret_cast<LeafPage *>(buffer_pool_manager_->FetchPage(rleaf_page_id));
-    //1.判断是否可以从左边兄弟借元素
-    if(lsibling->GetSize()+leaf->GetSize()>leaf_max_size_) {
-      Redistribute(lsibling, leaf, 1);
+
+  InternalPage *ppage=reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(node->GetParentPageId()));
+  auto index=ppage->ValueIndex(node->GetPageId());
+  //1.在节点不是最左边的情况下，判断是否可以从左边兄弟借元素
+  if(index>0) {
+    auto lpage_id=ppage->ValueAt(index-1);
+    N *lsibling = reinterpret_cast<N *>(buffer_pool_manager_->FetchPage(lpage_id));
+    if(lsibling->GetSize()+node->GetSize()>node->GetMaxSize()) {
+      Redistribute(lsibling, node, 1);
+      buffer_pool_manager_->UnpinPage(lpage_id,true);
+      return false;
     }
-    //2.左兄弟不能借，判断能否从右边兄弟借元素
-    else if(rsibling->GetSize()+leaf->GetSize()>leaf_max_size_) {
-      Redistribute(rsibling, leaf, 0);
+  }
+
+    //2.在节点不是最右边，且左兄弟借不到的情况下，判断能否从右边兄弟借元素
+    if(index<ppage->GetSize()) {
+      auto rpage_id = ppage->ValueAt(index + 1);
+      N *rsibling = reinterpret_cast<N *>(buffer_pool_manager_->FetchPage(rpage_id));
+      if (rsibling->GetSize() + node->GetSize() > node->GetMaxSize()) {
+        Redistribute(rsibling, node, 0);
+        return false;
+      }
     }
-    //3. 左右两边都不能借元素，做合并操作
-    else{
-      InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(leaf->GetParentPageId()));
-      auto index=ppage->ValueAt(node->GetPageId());
-      Coalesce(&rsibling,&leaf,&ppage,index);
+
+
+  //3 节点是最左边且右兄弟不能借元素，和右边兄弟合并
+  if(index==0) {
+    auto rpage_id = ppage->ValueAt(index + 1);
+    N *rsibling = reinterpret_cast<N *>(buffer_pool_manager_->FetchPage(rpage_id));
+    if (rsibling->GetSize() + node->GetSize() > node->GetMaxSize()) {
+      buffer_pool_manager_->UnpinPage(rpage_id,true);
       return true;
     }
   }
-  //内部节点
-  else{
-    InternalPage *inner = reinterpret_cast<InternalPage *>(node);
-    InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(inner->GetParentPageId()));
-    auto index=ppage->ValueIndex(inner->GetPageId());
+
+  //4. 在节点不是最左边，且左右兄弟都借不到元素，和左边兄弟合并
+  if(index>0) {
     auto lpage_id=ppage->ValueAt(index-1);
-    auto rpage_id=ppage->ValueAt(index+1);
-    InternalPage *lpage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(lpage_id));
-    InternalPage *rpage=reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(rpage_id));
-    //1.判断是否可以从左边兄弟借元素
-    if(lpage->GetSize()+inner->GetSize()>internal_max_size_) {
-      Redistribute(lpage, inner, 1);
-    }
-    //2.左兄弟不能借，判断能否从右边兄弟借元素
-    else if(rpage->GetSize()+inner->GetSize()>leaf_max_size_) {
-      Redistribute(rpage, inner, 0);
-    }
-    //3. 左右两边都不能借元素，做合并操作
-    else{
-      Coalesce(&rpage,&inner,&ppage,index);
+    N *lsibling = reinterpret_cast<N *>(buffer_pool_manager_->FetchPage(lpage_id));
+    if(lsibling->GetSize()+node->GetSize()>node->GetMaxSize()) {
+      Coalesce(&lsibling, &node ,&ppage,index);
+      buffer_pool_manager_->UnpinPage(lpage_id,true);
       return true;
     }
   }
@@ -395,19 +389,40 @@ bool BPLUSTREE_TYPE::Coalesce(N **neighbor_node, N **node,
                               BPlusTreeInternalPage<KeyType, page_id_t, KeyComparator> **parent, int index,
                               Transaction *transaction) {
   transaction= nullptr;
-  //1. 如果是叶子节点，调用叶子节点的moveallto,将本节点的全部元素移动给兄弟节点
-  if((*node)->IsLeafPage()){
+  int n_index=(*parent)->ValueIndex((*neighbor_node)->GetPageId());
+
+  //1.节点是叶子节点
+  if((*node)->IsLeafPage()) {
     LeafPage *leaf = reinterpret_cast<LeafPage *>(*node);
     LeafPage *n_leaf = reinterpret_cast<LeafPage *>(*neighbor_node);
-    leaf->MoveAllTo(n_leaf);
+    // 1.1.如果兄弟节点在左边，node调用MoveHalfTo,将自己的元素移到左边节点，并且自己要做删除
+    if (n_index < index) {
+      leaf->MoveAllTo(n_leaf);
+      buffer_pool_manager_->DeletePage((*node)->GetPageId());
+    }
+    // 1.2.如果兄弟节点在右边，右兄弟调用MoveHalfTo，将元素移到node节点，并且删除兄弟页
+    else if (n_index > index) {
+      n_leaf->MoveAllTo(leaf);
+      buffer_pool_manager_->DeletePage((*neighbor_node)->GetPageId());
+    }
   }
-  //2.如果是内部节点，调用内部节点的moveallto，对被移动的子节点做索引持久化
+  //2. 节点是中间节点
   else{
     InternalPage *inner = reinterpret_cast<InternalPage *>(*node);
     InternalPage *n_inner = reinterpret_cast<InternalPage *>(*neighbor_node);
-    inner->MoveAllTo(n_inner,n_inner->KeyAt(0),buffer_pool_manager_);
+    // 2.1.如果兄弟节点在左边，node调用MoveHalfTo,将自己的元素移到左边节点，并且自己要做删除.middle_key为自己的
+    if (n_index < index) {
+      auto middle_key=(*parent)->KeyAt(index);
+      inner->MoveAllTo(n_inner,middle_key,buffer_pool_manager_);
+      buffer_pool_manager_->DeletePage((*node)->GetPageId());
+    }
+    // 2.2.如果兄弟节点在右边，右兄弟调用MoveHalfTo，将元素移到node节点，并且删除兄弟页。middle_key为右兄弟的
+    else if (n_index > index) {
+      auto middle_key=(*parent)->KeyAt(index+1);
+      n_inner->MoveAllTo(inner,middle_key,buffer_pool_manager_);
+      buffer_pool_manager_->DeletePage((*neighbor_node)->GetPageId());
+    }
   }
-  buffer_pool_manager_->DeletePage((*node)->GetPageId());
   //父亲节点删除node页面
   (*parent)->Remove(index);
   //1. 如果删除后，父节点size不满足最小条件，父节点借元素或合并

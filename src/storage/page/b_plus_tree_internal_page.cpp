@@ -151,7 +151,7 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveHalfTo(BPlusTreeInternalPage *recipient
   int index = this->GetMinSize();
   //recipient从原节点（this）的index+1开始，复制剩下一半的页
   //Q: 这里的数量，有点混淆。对于内部节点，minsize到底是啥？
-  recipient->CopyNFrom(&(this->array[index+1]),this->GetSize()-index,buffer_pool_manager);
+  recipient->CopyNFrom(&(array[0]),this->GetSize()-index,buffer_pool_manager);
   // KeyType newkey = KeyAt(index);
   // ValueType newvalue = ValueAt(index);
   // for (int i = index; i < size_; i++) {
@@ -171,13 +171,13 @@ INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyNFrom(MappingType *items, int size, BufferPoolManager *buffer_pool_manager) {
   for (int i = 0; i < size; i++) {
     // array[size_ + i] = items;
-    array[i] = *items;
+    array[i]=*(items+i);
     //索引改变后，要做持久化
     //子节点的父亲节点改变
-    auto cpage=reinterpret_cast<B_PLUS_TREE_INTERNAL_PAGE_TYPE *>(buffer_pool_manager->FetchPage(items->second));
+    auto cpage=reinterpret_cast<B_PLUS_TREE_INTERNAL_PAGE_TYPE *>(buffer_pool_manager->FetchPage((items+i)->second));
     cpage->SetParentPageId(this->GetPageId());
-     buffer_pool_manager->UnpinPage(items->second,true);
-     buffer_pool_manager->FlushPage(items->second);
+     buffer_pool_manager->UnpinPage((items+i)->second,true);
+     buffer_pool_manager->FlushPage((items+i)->second);
     items++;
   }
 }

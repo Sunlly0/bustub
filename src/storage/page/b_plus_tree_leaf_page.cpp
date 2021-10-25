@@ -33,7 +33,6 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::Init(page_id_t page_id, page_id_t parent_id, in
   SetParentPageId(parent_id);
   SetPageId(page_id);
   SetNextPageId(INVALID_PAGE_ID);
-  SetPrePageId(INVALID_PAGE_ID);
   SetMaxSize(max_size);
 }
 
@@ -45,12 +44,6 @@ page_id_t B_PLUS_TREE_LEAF_PAGE_TYPE::GetNextPageId() const { return next_page_i
 
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::SetNextPageId(page_id_t next_page_id) { next_page_id_ = next_page_id; }
-
-INDEX_TEMPLATE_ARGUMENTS
-page_id_t B_PLUS_TREE_LEAF_PAGE_TYPE::GetPrePageId() const { return pre_page_id_; }
-
-INDEX_TEMPLATE_ARGUMENTS
-void B_PLUS_TREE_LEAF_PAGE_TYPE::SetPrePageId(page_id_t pre_page_id) { pre_page_id_ = pre_page_id; }
 
 /**
  * Helper method to find the first index i so that array[i].first >= key
@@ -139,7 +132,7 @@ void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveHalfTo(BPlusTreeLeafPage *recipient) {
   //此处是recipient将元素copy到自己,recipient从原节点（this）的num开始，复制剩下一半的页
 //  recipient->CopyNFrom(&(this->array[num]), num);
 //  recipient->CopyNFrom(&(array[GetMinSize()]), num);
-  recipient->CopyNFrom(array+GetMinSize(), num);
+  recipient->CopyNFrom(&array[GetMinSize()], num);
   this->SetSize( GetMinSize());
   recipient->SetSize(num);
 }
@@ -151,10 +144,7 @@ INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::CopyNFrom(MappingType *items, int size) {
   for (int i = 0; i < size; i++) {
     // array[size_ + i] = items[i];
-    array[i]=items[i];
-//    array[i].first=items->first;
-//    array[i].second=items->second;
-//    items++;
+    array[i+this->GetSize()]=*(items+i);
   }
 }
 
@@ -215,21 +205,22 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::RemoveAndDeleteRecord(const KeyType &key, const 
  */
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::MoveAllTo(BPlusTreeLeafPage *recipient) {
-  //node和rsibling合并，node全部元素挪至rsibling并即将删除本节点。
-  //recipient向后挪动size位
-  for(int i=this->GetSize()+recipient->GetSize()-1;i>this->GetSize();i--){
-    recipient->array[i]=recipient->array[i-this->GetSize()];
-  }
-  //recipient的前size位从本节点中复制补全
-  for(int i=0;i<this->GetSize()-1;i++){
-    recipient->array[i]=this->array[i];
-  }
+  //lsibling和node合并，node全部元素挪至lsibling并即将删除本节点。
+  //为了避免找前驱的情况，总是将右边的元素挪到左边
+  recipient->CopyNFrom(&(this->array[0]),this->GetSize());
+//
+//  //recipient向后挪动size位
+//  for(int i=this->GetSize()+recipient->GetSize()-1;i>this->GetSize();i--){
+//    recipient->array[i]=recipient->array[i-this->GetSize()];
+//  }
+//  //recipient的前size位从本节点中复制补全
+//  for(int i=0;i<this->GetSize()-1;i++){
+//    recipient->array[i]=this->array[i];
+//  }
   //修改大小
   this->SetSize(0);
   recipient->IncreaseSize(this->GetSize());
   recipient->SetNextPageId(this->GetNextPageId());
-  recipient->SetPrePageId(this->GetPrePageId());
-
 }
 
 /*****************************************************************************
