@@ -236,15 +236,15 @@ void BPLUSTREE_TYPE::InsertIntoParent(BPlusTreePage *old_node, const KeyType &ke
     ppage->Init(ppage_id,INVALID_PAGE_ID,internal_max_size_);
     ppage->PopulateNewRoot(old_node->GetPageId(), key, new_node->GetPageId());
     //设置分裂新旧节点的父亲为ppage
-    old_node->SetPageId(ppage_id);
-    new_node->SetPageId(ppage_id);
+    old_node->SetParentPageId(ppage_id);
+    new_node->SetParentPageId(ppage_id);
     UpdateRootPageId(0);//跟新根节点id
     this->root_page_id_ = ppage_id;
   }
   // 2. 如果父节点不为空
   else {
     InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(ppage_id));
-    new_node->SetPageId(ppage_id);
+    new_node->SetParentPageId(ppage_id);
     int size = ppage->InsertNodeAfter(old_node->GetPageId(), key, new_node->GetPageId());
     // 2.1 插入后，如果父节点没有满，则结束
     // 2.2 插入后，如果父节点的size大于maxsize，则递归调用本函数
@@ -291,16 +291,19 @@ void BPLUSTREE_TYPE::Remove(const KeyType &key, Transaction *transaction) {
 
     //2.1 如果size变化，删除成功。
     if(pre_size!=size){
-      //更新父节点的key值，保证和删除key后的子节点一致
-      InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(leaf->GetParentPageId()));
-      auto index=ppage->ValueIndex(page_id);
-      ppage->SetKeyAt(index,leaf->KeyAt(0));
-      buffer_pool_manager_->UnpinPage(leaf->GetParentPageId(),true);
-      //对删除后叶子节点的size进行判断
-      //2.1.1. 删除后，叶子节点的size不满足最小值，向兄弟节点借元素或合并
-      if(size<leaf->GetMinSize()){
-        //返回页面是否删除。实际的删除在Coalesce中执行。
-        CoalesceOrRedistribute(leaf);
+      //2.2.1 如果子叶不是根节点
+      if(!leaf->IsRootPage()){
+        //更新父节点的key值，保证和删除key后的子节点一致
+        InternalPage *ppage = reinterpret_cast<InternalPage *>(buffer_pool_manager_->FetchPage(leaf->GetParentPageId()));
+        auto index=ppage->ValueIndex(page_id);
+        ppage->SetKeyAt(index,leaf->KeyAt(0));
+        buffer_pool_manager_->UnpinPage(leaf->GetParentPageId(),true);
+        //对删除后叶子节点的size进行判断
+        //2.1.1. 删除后，叶子节点的size不满足最小值，向兄弟节点借元素或合并
+        if(size<leaf->GetMinSize()){
+          //返回页面是否删除。实际的删除在Coalesce中执行。
+          CoalesceOrRedistribute(leaf);
+        }
       }
       //2.1.2.满足条件，删除结束
     }
@@ -486,9 +489,9 @@ INDEX_TEMPLATE_ARGUMENTS
 bool BPLUSTREE_TYPE::AdjustRoot(BPlusTreePage *old_root_node) {
   //对根不满足最小值条件时做判断
   //1. 如果根的size>1，不做删除操作
-  //2. 如果根还有子节点，将子节点作为新的根节点，该节点删除
+  //2. 如果根size=1并还有子节点，此时肯定是内部节点，将子节点作为新的根节点，该节点删除
 
-  if(old_root_node->GetSize()==1){
+  if(old_root_node->GetSize()==1&&!old_root_node->IsLeafPage()){
     InternalPage *root_inner = reinterpret_cast<InternalPage *>(old_root_node);
     BPlusTreePage *cpage=reinterpret_cast<BPlusTreePage *>(buffer_pool_manager_->FetchPage(root_inner->ValueAt(0)));
     cpage->SetParentPageId(INVALID_PAGE_ID);
@@ -497,7 +500,7 @@ bool BPLUSTREE_TYPE::AdjustRoot(BPlusTreePage *old_root_node) {
     buffer_pool_manager_->FlushPage(cpage->GetParentPageId());
     return true;
   }
-  //3. 如果根没有子节点，整个树至为空
+  //3. 如果根没有子节点且size=0，肯定是空叶子节点，整个树至为空
   else if(old_root_node->GetSize()==0){
     root_page_id_=INVALID_PAGE_ID;
     return true;

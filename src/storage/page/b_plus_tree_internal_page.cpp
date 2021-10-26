@@ -64,7 +64,7 @@ int B_PLUS_TREE_INTERNAL_PAGE_TYPE::ValueIndex(const ValueType &value) const {
     ValueType v = array[i].second;
     if (v == value) return i;
   }
-  return 0;
+  return GetSize();
 }
 
 /*
@@ -130,8 +130,8 @@ int B_PLUS_TREE_INTERNAL_PAGE_TYPE::InsertNodeAfter(const ValueType &old_value, 
   for (int i = this->GetSize(); i > index + 1; i--) {
     array[i + 1] = array[i];
   }
-  array[index].first = new_key;
-  array[index].second = new_value;
+  array[index+1].first = new_key;
+  array[index+1].second = new_value;
   this->IncreaseSize(1);
   // Q:如果插入后size==max_size_，是否要调用分裂函数？
   // A:树的实现过程会考虑，本函数仅做插入
@@ -148,19 +148,12 @@ INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveHalfTo(BPlusTreeInternalPage *recipient,
                                                 BufferPoolManager *buffer_pool_manager) {
   //内部节点分裂时调用，recipient是新建的内部页
-  int index = this->GetMinSize();
-  //recipient从原节点（this）的index+1开始，复制剩下一半的页
-  //Q: 这里的数量，有点混淆。对于内部节点，minsize到底是啥？
-  recipient->CopyNFrom(&(array[0]),this->GetSize()-index,buffer_pool_manager);
-  // KeyType newkey = KeyAt(index);
-  // ValueType newvalue = ValueAt(index);
-  // for (int i = index; i < size_; i++) {
-  //   recipient->array{i - index} = array{index};
-  //   // array{index}=0;
-  // }
-
-  recipient->SetSize(this->GetSize()- index);
-  this->SetSize(index);
+  auto remain_num=GetMinSize();
+  auto num = GetSize() - remain_num;
+  //此处是recipient将元素copy到自己,recipient从原节点（this）的num开始，复制剩下一半的页
+  recipient->CopyNFrom(&array[remain_num], num,buffer_pool_manager);
+  this->SetSize(remain_num);
+  recipient->SetSize(num);
 }
 
 /* Copy entries into me, starting from {items} and copy {size} entries.
@@ -170,15 +163,14 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::MoveHalfTo(BPlusTreeInternalPage *recipient
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::CopyNFrom(MappingType *items, int size, BufferPoolManager *buffer_pool_manager) {
   for (int i = 0; i < size; i++) {
-    // array[size_ + i] = items;
-    array[i]=*(items+i);
+    array[i+this->GetSize()]=*(items+i);
+
     //索引改变后，要做持久化
     //子节点的父亲节点改变
     auto cpage=reinterpret_cast<B_PLUS_TREE_INTERNAL_PAGE_TYPE *>(buffer_pool_manager->FetchPage((items+i)->second));
     cpage->SetParentPageId(this->GetPageId());
      buffer_pool_manager->UnpinPage((items+i)->second,true);
      buffer_pool_manager->FlushPage((items+i)->second);
-    items++;
   }
 }
 
