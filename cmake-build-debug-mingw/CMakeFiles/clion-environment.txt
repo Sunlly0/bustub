@@ -1,0 +1,4 @@
+ToolSet: w64 6.0 (local)@D:\IDE\mingw\mingw8664\mingw64
+Options: 
+
+Options:-DCMAKE_BUILD_TYPE=DEBUG

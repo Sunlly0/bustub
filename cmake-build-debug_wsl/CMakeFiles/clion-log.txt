@@ -1,0 +1,30 @@
+C:\WINDOWS\system32\wsl.exe --distribution Ubuntu --exec /bin/sh -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/d/bustub/cmake-build-debug_wsl && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_BUILD_TYPE=DEBUG -G 'CodeBlocks - Unix Makefiles' /mnt/d/bustub"
+-- BusTub/main found clang-format at /usr/bin/clang-format
+-- BusTub/main found clang-tidy at /usr/bin/clang-tidy
+-- BusTub/main found cpplint at /mnt/d/bustub/build_support/cpplint.py
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/bustub/cmake-build-debug_wsl/googletest-download
+make: Warning: File 'Makefile' has modification time 0.52 s in the future
+make[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 0.62 s in the future
+make[2]: Warning: File 'CMakeFiles/googletest.dir/progress.make' has modification time 0.57 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Warning: File 'CMakeFiles/googletest.dir/progress.make' has modification time 0.48 s in the future
+[ 11%] Performing update step for 'googletest'
+Current branch master is up to date.
+[ 22%] No configure step for 'googletest'
+[ 33%] No build step for 'googletest'
+[ 44%] No install step for 'googletest'
+[ 55%] No test step for 'googletest'
+[ 66%] Completed 'googletest'
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+[100%] Built target googletest
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make: warning:  Clock skew detected.  Your build may be incomplete.
+-- CMAKE_CXX_FLAGS:  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes
+-- CMAKE_CXX_FLAGS_DEBUG: -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls
+-- CMAKE_EXE_LINKER_FLAGS:  -fPIC
+-- CMAKE_SHARED_LINKER_FLAGS:  -fPIC
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/bustub/cmake-build-debug_wsl

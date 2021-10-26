@@ -1,0 +1,3 @@
+"D:\IDE\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\thirdparty_murmur3.dir/objects.a
+D:\IDE\mingw\mingw8664\mingw64\bin\ar.exe cr CMakeFiles\thirdparty_murmur3.dir/objects.a @CMakeFiles\thirdparty_murmur3.dir\objects1.rsp
+D:\IDE\mingw\mingw8664\mingw64\bin\g++.exe  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls  -fPIC -shared -o ..\bin\libthirdparty_murmur3.dll -Wl,--out-implib,..\lib\libthirdparty_murmur3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\thirdparty_murmur3.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\thirdparty_murmur3.dir\linklibs.rsp

@@ -1,0 +1,1 @@
+-ID:/bustub/src -ID:/bustub/src/include -ID:/bustub/test/include -ID:/bustub/third_party -isystem D:/bustub/cmake-build-debug-mingw/googletest-src/googletest/include -isystem D:/bustub/cmake-build-debug-mingw/googletest-src/googletest -isystem D:/bustub/cmake-build-debug-mingw/googletest-src/googlemock/include -isystem D:/bustub/cmake-build-debug-mingw/googletest-src/googlemock
