@@ -62,6 +62,10 @@ class BPlusTreePage {
 
   void SetLSN(lsn_t lsn = INVALID_LSN);
 
+  //并发控制：增加安全判断
+  bool IsInsertSafe() const;
+  bool IsDeleteSafe() const;
+
  private:
   // member variable, attributes that both internal and leaf page share
   IndexPageType page_type_ __attribute__((__unused__));

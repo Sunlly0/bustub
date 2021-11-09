@@ -189,6 +189,12 @@ int B_PLUS_TREE_LEAF_PAGE_TYPE::RemoveAndDeleteRecord(const KeyType &key, const 
     for (int i = index; i < GetSize()-1; i++) {
       array[i] = array[i+1];
     }
+    //Q:删除后需要清空，否则测试时会出现错误。
+    KeyType keynone{};
+    ValueType ridnone{};
+    array[GetSize()-1].first=keynone;
+    array[GetSize()-1].second=ridnone;
+
     this->IncreaseSize(-1);
   }
   // 2. key不存在，删除失败

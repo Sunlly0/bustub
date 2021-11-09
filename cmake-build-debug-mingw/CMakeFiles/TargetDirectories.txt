@@ -64,10 +64,11 @@ D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_insert_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_print_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/grading_b_plus_tree_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/disk_manager_test.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/edit_cache.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/grading_b_plus_tree_checkpoint_1_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/tmp_tuple_page_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/tuple_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/type_test.dir
-D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/edit_cache.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/rebuild_cache.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/list_install_components.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/install/local.dir

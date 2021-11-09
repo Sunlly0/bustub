@@ -114,6 +114,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/b_plus_tree_print_test.dir/DependInfo.cmake"
   "test/CMakeFiles/grading_b_plus_tree_test.dir/DependInfo.cmake"
   "test/CMakeFiles/disk_manager_test.dir/DependInfo.cmake"
+  "test/CMakeFiles/grading_b_plus_tree_checkpoint_1_test.dir/DependInfo.cmake"
   "test/CMakeFiles/tmp_tuple_page_test.dir/DependInfo.cmake"
   "test/CMakeFiles/tuple_test.dir/DependInfo.cmake"
   "test/CMakeFiles/type_test.dir/DependInfo.cmake"

@@ -23,6 +23,9 @@ namespace bustub {
 
 #define BPLUSTREE_TYPE BPlusTree<KeyType, ValueType, KeyComparator>
 
+// define option type enum by Sunlly
+enum class TreeOptionType { FIND=0, INSERT, DELETE };
+
 /**
  * Main class providing the API for the Interactive B+ Tree.
  *
@@ -41,6 +44,9 @@ class BPlusTree {
  public:
   explicit BPlusTree(std::string name, BufferPoolManager *buffer_pool_manager, const KeyComparator &comparator,
                      int leaf_max_size = LEAF_PAGE_SIZE, int internal_max_size = INTERNAL_PAGE_SIZE);
+
+  //并发控制：辅助函数，递归释放所有写锁
+  void RealseAllWriteLock(Transaction *transaction);
 
   // Returns true if this B+ tree has no keys and values.
   bool IsEmpty() const;
@@ -77,7 +83,7 @@ class BPlusTree {
   // read data from file and remove one by one
   void RemoveFromFile(const std::string &file_name, Transaction *transaction = nullptr);
   // expose for test purpose
-  Page *FindLeafPage(const KeyType &key, bool leftMost = false);
+  Page *FindLeafPage(const KeyType &key,bool leftMost = false,TreeOptionType option=TreeOptionType::FIND, Transaction *transaction= nullptr);
 
  private:
   void StartNewTree(const KeyType &key, const ValueType &value);
@@ -116,6 +122,13 @@ class BPlusTree {
   KeyComparator comparator_;
   int leaf_max_size_;
   int internal_max_size_;
+
+  //并发控制：新增成员变量，
+//  page_id_t *virtual_root_page_id;
+  Page virtual_page_;
+//  bool virtual_page_valid_=false;
+  std::mutex mutex_;
+
 };
 
 }  // namespace bustub

@@ -38,6 +38,8 @@ add_test(b_plus_tree_print_test "/mnt/d/bustub/cmake-build-debug_wsl/test/b_plus
 set_tests_properties(b_plus_tree_print_test PROPERTIES  _BACKTRACE_TRIPLES "/mnt/d/bustub/test/CMakeLists.txt;58;add_test;/mnt/d/bustub/test/CMakeLists.txt;0;")
 add_test(disk_manager_test "/mnt/d/bustub/cmake-build-debug_wsl/test/disk_manager_test" "--gtest_color=yes" "--gtest_output=xml:/mnt/d/bustub/cmake-build-debug_wsl/test/disk_manager_test.xml")
 set_tests_properties(disk_manager_test PROPERTIES  _BACKTRACE_TRIPLES "/mnt/d/bustub/test/CMakeLists.txt;58;add_test;/mnt/d/bustub/test/CMakeLists.txt;0;")
+add_test(grading_b_plus_tree_checkpoint_1_test "/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_checkpoint_1_test" "--gtest_color=yes" "--gtest_output=xml:/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_checkpoint_1_test.xml")
+set_tests_properties(grading_b_plus_tree_checkpoint_1_test PROPERTIES  _BACKTRACE_TRIPLES "/mnt/d/bustub/test/CMakeLists.txt;58;add_test;/mnt/d/bustub/test/CMakeLists.txt;0;")
 add_test(grading_b_plus_tree_test "/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_test" "--gtest_color=yes" "--gtest_output=xml:/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_test.xml")
 set_tests_properties(grading_b_plus_tree_test PROPERTIES  _BACKTRACE_TRIPLES "/mnt/d/bustub/test/CMakeLists.txt;58;add_test;/mnt/d/bustub/test/CMakeLists.txt;0;")
 add_test(tmp_tuple_page_test "/mnt/d/bustub/cmake-build-debug_wsl/test/tmp_tuple_page_test" "--gtest_color=yes" "--gtest_output=xml:/mnt/d/bustub/cmake-build-debug_wsl/test/tmp_tuple_page_test.xml")

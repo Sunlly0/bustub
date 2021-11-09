@@ -18,8 +18,7 @@
 namespace bustub {
 
 #define B_PLUS_TREE_LEAF_PAGE_TYPE BPlusTreeLeafPage<KeyType, ValueType, KeyComparator>
-//增加指向前一个页面的page_id;将size从28修改成32
-#define LEAF_PAGE_HEADER_SIZE 32
+#define LEAF_PAGE_HEADER_SIZE 28
 #define LEAF_PAGE_SIZE ((PAGE_SIZE - LEAF_PAGE_HEADER_SIZE) / sizeof(MappingType))
 
 /**
@@ -73,8 +72,6 @@ class BPlusTreeLeafPage : public BPlusTreePage {
 
 
   page_id_t next_page_id_;
-  //增加指向前一个页面的page_id;
-  page_id_t pre_page_id_;
   MappingType array[0];
 };
 }  // namespace bustub

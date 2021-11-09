@@ -68,4 +68,16 @@ void BPlusTreePage::SetPageId(page_id_t page_id) { page_id_ = page_id; }
  */
 void BPlusTreePage::SetLSN(lsn_t lsn) { lsn_ = lsn; }
 
+//并发控制：增加安全判断
+bool BPlusTreePage::IsInsertSafe() const{
+  if(this->GetSize()>=this->GetMaxSize()) return false;
+  else return true;
+};
+bool BPlusTreePage::IsDeleteSafe() const{
+  if(this->IsRootPage()&&this->GetSize()>1) return true;
+  if(this->GetSize()<=this->GetMinSize()) return false;
+  else return true;
+};
+
+
 }  // namespace bustub

@@ -276,8 +276,8 @@
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/clock_replacer_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\clock_replacer_test.dir\\buffer\\clock_replacer_test.cpp.obj -c D:\\bustub\\test\\buffer\\clock_replacer_test.cpp",
-  "file": "D:/bustub/test/buffer/clock_replacer_test.cpp"
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/buffer_pool_manager_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\buffer_pool_manager_test.dir\\buffer\\buffer_pool_manager_test.cpp.obj -c D:\\bustub\\test\\buffer\\buffer_pool_manager_test.cpp",
+  "file": "D:/bustub/test/buffer/buffer_pool_manager_test.cpp"
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
@@ -286,8 +286,18 @@
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/buffer_pool_manager_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\buffer_pool_manager_test.dir\\buffer\\buffer_pool_manager_test.cpp.obj -c D:\\bustub\\test\\buffer\\buffer_pool_manager_test.cpp",
-  "file": "D:/bustub/test/buffer/buffer_pool_manager_test.cpp"
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/clock_replacer_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\clock_replacer_test.dir\\buffer\\clock_replacer_test.cpp.obj -c D:\\bustub\\test\\buffer\\clock_replacer_test.cpp",
+  "file": "D:/bustub/test/buffer/clock_replacer_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/lru_replacer_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\lru_replacer_test.dir\\buffer\\lru_replacer_test.cpp.obj -c D:\\bustub\\test\\buffer\\lru_replacer_test.cpp",
+  "file": "D:/bustub/test/buffer/lru_replacer_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/transaction_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\transaction_test.dir\\concurrency\\transaction_test.cpp.obj -c D:\\bustub\\test\\concurrency\\transaction_test.cpp",
+  "file": "D:/bustub/test/concurrency/transaction_test.cpp"
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
@@ -301,63 +311,8 @@
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/hash_table_page_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\hash_table_page_test.dir\\container\\hash_table_page_test.cpp.obj -c D:\\bustub\\test\\container\\hash_table_page_test.cpp",
-  "file": "D:/bustub/test/container/hash_table_page_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/grading_b_plus_tree_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\grading_b_plus_tree_test.dir\\storage\\grading_b_plus_tree_test.cpp.obj -c D:\\bustub\\test\\storage\\grading_b_plus_tree_test.cpp",
-  "file": "D:/bustub/test/storage/grading_b_plus_tree_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/starter_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\starter_test.dir\\primer\\starter_test.cpp.obj -c D:\\bustub\\test\\primer\\starter_test.cpp",
-  "file": "D:/bustub/test/primer/starter_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/tuple_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\tuple_test.dir\\table\\tuple_test.cpp.obj -c D:\\bustub\\test\\table\\tuple_test.cpp",
-  "file": "D:/bustub/test/table/tuple_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
   "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/type_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\type_test.dir\\type\\type_test.cpp.obj -c D:\\bustub\\test\\type\\type_test.cpp",
   "file": "D:/bustub/test/type/type_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/lru_replacer_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\lru_replacer_test.dir\\buffer\\lru_replacer_test.cpp.obj -c D:\\bustub\\test\\buffer\\lru_replacer_test.cpp",
-  "file": "D:/bustub/test/buffer/lru_replacer_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/hash_table_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\hash_table_test.dir\\container\\hash_table_test.cpp.obj -c D:\\bustub\\test\\container\\hash_table_test.cpp",
-  "file": "D:/bustub/test/container/hash_table_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/b_plus_tree_insert_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\b_plus_tree_insert_test.dir\\storage\\b_plus_tree_insert_test.cpp.obj -c D:\\bustub\\test\\storage\\b_plus_tree_insert_test.cpp",
-  "file": "D:/bustub/test/storage/b_plus_tree_insert_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/b_plus_tree_print_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\b_plus_tree_print_test.dir\\storage\\b_plus_tree_print_test.cpp.obj -c D:\\bustub\\test\\storage\\b_plus_tree_print_test.cpp",
-  "file": "D:/bustub/test/storage/b_plus_tree_print_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/tmp_tuple_page_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\tmp_tuple_page_test.dir\\storage\\tmp_tuple_page_test.cpp.obj -c D:\\bustub\\test\\storage\\tmp_tuple_page_test.cpp",
-  "file": "D:/bustub/test/storage/tmp_tuple_page_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/b_plus_tree_concurrent_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\b_plus_tree_concurrent_test.dir\\storage\\b_plus_tree_concurrent_test.cpp.obj -c D:\\bustub\\test\\storage\\b_plus_tree_concurrent_test.cpp",
-  "file": "D:/bustub/test/storage/b_plus_tree_concurrent_test.cpp"
-},
-{
-  "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/executor_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\executor_test.dir\\execution\\executor_test.cpp.obj -c D:\\bustub\\test\\execution\\executor_test.cpp",
-  "file": "D:/bustub/test/execution/executor_test.cpp"
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
@@ -366,8 +321,43 @@
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/recovery_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\recovery_test.dir\\recovery\\recovery_test.cpp.obj -c D:\\bustub\\test\\recovery\\recovery_test.cpp",
-  "file": "D:/bustub/test/recovery/recovery_test.cpp"
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/grading_b_plus_tree_checkpoint_1_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\grading_b_plus_tree_checkpoint_1_test.dir\\storage\\grading_b_plus_tree_checkpoint_1_test.cpp.obj -c D:\\bustub\\test\\storage\\grading_b_plus_tree_checkpoint_1_test.cpp",
+  "file": "D:/bustub/test/storage/grading_b_plus_tree_checkpoint_1_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/hash_table_page_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\hash_table_page_test.dir\\container\\hash_table_page_test.cpp.obj -c D:\\bustub\\test\\container\\hash_table_page_test.cpp",
+  "file": "D:/bustub/test/container/hash_table_page_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/tuple_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\tuple_test.dir\\table\\tuple_test.cpp.obj -c D:\\bustub\\test\\table\\tuple_test.cpp",
+  "file": "D:/bustub/test/table/tuple_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/b_plus_tree_insert_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\b_plus_tree_insert_test.dir\\storage\\b_plus_tree_insert_test.cpp.obj -c D:\\bustub\\test\\storage\\b_plus_tree_insert_test.cpp",
+  "file": "D:/bustub/test/storage/b_plus_tree_insert_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/hash_table_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\hash_table_test.dir\\container\\hash_table_test.cpp.obj -c D:\\bustub\\test\\container\\hash_table_test.cpp",
+  "file": "D:/bustub/test/container/hash_table_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/b_plus_tree_concurrent_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\b_plus_tree_concurrent_test.dir\\storage\\b_plus_tree_concurrent_test.cpp.obj -c D:\\bustub\\test\\storage\\b_plus_tree_concurrent_test.cpp",
+  "file": "D:/bustub/test/storage/b_plus_tree_concurrent_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/tmp_tuple_page_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\tmp_tuple_page_test.dir\\storage\\tmp_tuple_page_test.cpp.obj -c D:\\bustub\\test\\storage\\tmp_tuple_page_test.cpp",
+  "file": "D:/bustub/test/storage/tmp_tuple_page_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/b_plus_tree_print_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\b_plus_tree_print_test.dir\\storage\\b_plus_tree_print_test.cpp.obj -c D:\\bustub\\test\\storage\\b_plus_tree_print_test.cpp",
+  "file": "D:/bustub/test/storage/b_plus_tree_print_test.cpp"
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
@@ -376,7 +366,22 @@
 },
 {
   "directory": "D:/bustub/cmake-build-debug-mingw/test",
-  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/transaction_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\transaction_test.dir\\concurrency\\transaction_test.cpp.obj -c D:\\bustub\\test\\concurrency\\transaction_test.cpp",
-  "file": "D:/bustub/test/concurrency/transaction_test.cpp"
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/recovery_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\recovery_test.dir\\recovery\\recovery_test.cpp.obj -c D:\\bustub\\test\\recovery\\recovery_test.cpp",
+  "file": "D:/bustub/test/recovery/recovery_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/starter_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\starter_test.dir\\primer\\starter_test.cpp.obj -c D:\\bustub\\test\\primer\\starter_test.cpp",
+  "file": "D:/bustub/test/primer/starter_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/executor_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\executor_test.dir\\execution\\executor_test.cpp.obj -c D:\\bustub\\test\\execution\\executor_test.cpp",
+  "file": "D:/bustub/test/execution/executor_test.cpp"
+},
+{
+  "directory": "D:/bustub/cmake-build-debug-mingw/test",
+  "command": "D:\\IDE\\mingw\\mingw8664\\mingw64\\bin\\g++.exe  @CMakeFiles/grading_b_plus_tree_test.dir/includes_CXX.rsp  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -std=gnu++17 -o CMakeFiles\\grading_b_plus_tree_test.dir\\storage\\grading_b_plus_tree_test.cpp.obj -c D:\\bustub\\test\\storage\\grading_b_plus_tree_test.cpp",
+  "file": "D:/bustub/test/storage/grading_b_plus_tree_test.cpp"
 }
 ]

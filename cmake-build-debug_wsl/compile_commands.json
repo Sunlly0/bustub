@@ -276,33 +276,38 @@
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/tuple_test.dir/table/tuple_test.cpp.o -c /mnt/d/bustub/test/table/tuple_test.cpp",
-  "file": "/mnt/d/bustub/test/table/tuple_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/starter_test.dir/primer/starter_test.cpp.o -c /mnt/d/bustub/test/primer/starter_test.cpp",
+  "file": "/mnt/d/bustub/test/primer/starter_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/type_test.dir/type/type_test.cpp.o -c /mnt/d/bustub/test/type/type_test.cpp",
-  "file": "/mnt/d/bustub/test/type/type_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/hash_table_test.dir/container/hash_table_test.cpp.o -c /mnt/d/bustub/test/container/hash_table_test.cpp",
+  "file": "/mnt/d/bustub/test/container/hash_table_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/tmp_tuple_page_test.dir/storage/tmp_tuple_page_test.cpp.o -c /mnt/d/bustub/test/storage/tmp_tuple_page_test.cpp",
-  "file": "/mnt/d/bustub/test/storage/tmp_tuple_page_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/buffer_pool_manager_test.dir/buffer/buffer_pool_manager_test.cpp.o -c /mnt/d/bustub/test/buffer/buffer_pool_manager_test.cpp",
+  "file": "/mnt/d/bustub/test/buffer/buffer_pool_manager_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/b_plus_tree_delete_test.dir/storage/b_plus_tree_delete_test.cpp.o -c /mnt/d/bustub/test/storage/b_plus_tree_delete_test.cpp",
-  "file": "/mnt/d/bustub/test/storage/b_plus_tree_delete_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/lru_replacer_test.dir/buffer/lru_replacer_test.cpp.o -c /mnt/d/bustub/test/buffer/lru_replacer_test.cpp",
+  "file": "/mnt/d/bustub/test/buffer/lru_replacer_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/b_plus_tree_insert_test.dir/storage/b_plus_tree_insert_test.cpp.o -c /mnt/d/bustub/test/storage/b_plus_tree_insert_test.cpp",
-  "file": "/mnt/d/bustub/test/storage/b_plus_tree_insert_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/lock_manager_test.dir/concurrency/lock_manager_test.cpp.o -c /mnt/d/bustub/test/concurrency/lock_manager_test.cpp",
+  "file": "/mnt/d/bustub/test/concurrency/lock_manager_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/recovery_test.dir/recovery/recovery_test.cpp.o -c /mnt/d/bustub/test/recovery/recovery_test.cpp",
-  "file": "/mnt/d/bustub/test/recovery/recovery_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/catalog_test.dir/catalog/catalog_test.cpp.o -c /mnt/d/bustub/test/catalog/catalog_test.cpp",
+  "file": "/mnt/d/bustub/test/catalog/catalog_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/b_plus_tree_print_test.dir/storage/b_plus_tree_print_test.cpp.o -c /mnt/d/bustub/test/storage/b_plus_tree_print_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/b_plus_tree_print_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
@@ -311,8 +316,53 @@
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/b_plus_tree_print_test.dir/storage/b_plus_tree_print_test.cpp.o -c /mnt/d/bustub/test/storage/b_plus_tree_print_test.cpp",
-  "file": "/mnt/d/bustub/test/storage/b_plus_tree_print_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/recovery_test.dir/recovery/recovery_test.cpp.o -c /mnt/d/bustub/test/recovery/recovery_test.cpp",
+  "file": "/mnt/d/bustub/test/recovery/recovery_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/grading_b_plus_tree_checkpoint_1_test.dir/storage/grading_b_plus_tree_checkpoint_1_test.cpp.o -c /mnt/d/bustub/test/storage/grading_b_plus_tree_checkpoint_1_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/grading_b_plus_tree_checkpoint_1_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/executor_test.dir/execution/executor_test.cpp.o -c /mnt/d/bustub/test/execution/executor_test.cpp",
+  "file": "/mnt/d/bustub/test/execution/executor_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/rwlatch_test.dir/common/rwlatch_test.cpp.o -c /mnt/d/bustub/test/common/rwlatch_test.cpp",
+  "file": "/mnt/d/bustub/test/common/rwlatch_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/transaction_test.dir/concurrency/transaction_test.cpp.o -c /mnt/d/bustub/test/concurrency/transaction_test.cpp",
+  "file": "/mnt/d/bustub/test/concurrency/transaction_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/b_plus_tree_delete_test.dir/storage/b_plus_tree_delete_test.cpp.o -c /mnt/d/bustub/test/storage/b_plus_tree_delete_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/b_plus_tree_delete_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/grading_b_plus_tree_test.dir/storage/grading_b_plus_tree_test.cpp.o -c /mnt/d/bustub/test/storage/grading_b_plus_tree_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/grading_b_plus_tree_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/disk_manager_test.dir/storage/disk_manager_test.cpp.o -c /mnt/d/bustub/test/storage/disk_manager_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/disk_manager_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/tmp_tuple_page_test.dir/storage/tmp_tuple_page_test.cpp.o -c /mnt/d/bustub/test/storage/tmp_tuple_page_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/tmp_tuple_page_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/type_test.dir/type/type_test.cpp.o -c /mnt/d/bustub/test/type/type_test.cpp",
+  "file": "/mnt/d/bustub/test/type/type_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
@@ -326,52 +376,12 @@
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/disk_manager_test.dir/storage/disk_manager_test.cpp.o -c /mnt/d/bustub/test/storage/disk_manager_test.cpp",
-  "file": "/mnt/d/bustub/test/storage/disk_manager_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/b_plus_tree_insert_test.dir/storage/b_plus_tree_insert_test.cpp.o -c /mnt/d/bustub/test/storage/b_plus_tree_insert_test.cpp",
+  "file": "/mnt/d/bustub/test/storage/b_plus_tree_insert_test.cpp"
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/catalog_test.dir/catalog/catalog_test.cpp.o -c /mnt/d/bustub/test/catalog/catalog_test.cpp",
-  "file": "/mnt/d/bustub/test/catalog/catalog_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/lock_manager_test.dir/concurrency/lock_manager_test.cpp.o -c /mnt/d/bustub/test/concurrency/lock_manager_test.cpp",
-  "file": "/mnt/d/bustub/test/concurrency/lock_manager_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/lru_replacer_test.dir/buffer/lru_replacer_test.cpp.o -c /mnt/d/bustub/test/buffer/lru_replacer_test.cpp",
-  "file": "/mnt/d/bustub/test/buffer/lru_replacer_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/transaction_test.dir/concurrency/transaction_test.cpp.o -c /mnt/d/bustub/test/concurrency/transaction_test.cpp",
-  "file": "/mnt/d/bustub/test/concurrency/transaction_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/buffer_pool_manager_test.dir/buffer/buffer_pool_manager_test.cpp.o -c /mnt/d/bustub/test/buffer/buffer_pool_manager_test.cpp",
-  "file": "/mnt/d/bustub/test/buffer/buffer_pool_manager_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/rwlatch_test.dir/common/rwlatch_test.cpp.o -c /mnt/d/bustub/test/common/rwlatch_test.cpp",
-  "file": "/mnt/d/bustub/test/common/rwlatch_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/hash_table_test.dir/container/hash_table_test.cpp.o -c /mnt/d/bustub/test/container/hash_table_test.cpp",
-  "file": "/mnt/d/bustub/test/container/hash_table_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/executor_test.dir/execution/executor_test.cpp.o -c /mnt/d/bustub/test/execution/executor_test.cpp",
-  "file": "/mnt/d/bustub/test/execution/executor_test.cpp"
-},
-{
-  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/test",
-  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/starter_test.dir/primer/starter_test.cpp.o -c /mnt/d/bustub/test/primer/starter_test.cpp",
-  "file": "/mnt/d/bustub/test/primer/starter_test.cpp"
+  "command": "/usr/bin/c++   -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include -isystem /mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls   -std=gnu++17 -o CMakeFiles/tuple_test.dir/table/tuple_test.cpp.o -c /mnt/d/bustub/test/table/tuple_test.cpp",
+  "file": "/mnt/d/bustub/test/table/tuple_test.cpp"
 }
 ]
