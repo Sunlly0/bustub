@@ -132,7 +132,7 @@ class Catalog {
     //1.创建新索引（IndexMetadata）（Index）（IndexInfo），分配index_oid
     auto index_oid=next_index_oid_++;
     auto *indexmetadata=new IndexMetadata(index_name,table_name,&schema,key_attrs);
-    auto *index=new BPlusTreeIndex(new BPlusTreeIndex<KeyType,ValueType,KeyComparator>(indexmetadata,bpm_));
+    auto *index=new BPlusTreeIndex<KeyType, ValueType, KeyComparator>(indexmetadata,bpm_);
     auto *indexinfo=new IndexInfo(key_schema,index_name,static_cast<std::unique_ptr<Index>>(index),index_oid,table_name,keysize);
 
     //2.添加到hash表：indexes_（index_oid->indexmentadata）

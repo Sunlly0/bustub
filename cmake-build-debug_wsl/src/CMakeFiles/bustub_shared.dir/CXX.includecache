@@ -648,14 +648,6 @@ buffer/buffer_pool_manager.h
 storage/index/generic_key.h
 ../src/include/storage/page/storage/index/generic_key.h
 
-../src/include/storage/page/header_page.h
-cstring
--
-string
--
-storage/page/page.h
-../src/include/storage/page/storage/page/page.h
-
 ../src/include/storage/page/page.h
 cstring
 -
@@ -928,35 +920,17 @@ memory
 execution/executors/update_executor.h
 /mnt/d/bustub/src/execution/execution/executors/update_executor.h
 
-/mnt/d/bustub/src/storage/index/b_plus_tree.cpp
-string
--
-common/exception.h
-/mnt/d/bustub/src/storage/index/common/exception.h
-common/rid.h
-/mnt/d/bustub/src/storage/index/common/rid.h
-storage/index/b_plus_tree.h
-/mnt/d/bustub/src/storage/index/storage/index/b_plus_tree.h
-storage/page/header_page.h
-/mnt/d/bustub/src/storage/index/storage/page/header_page.h
-
-/mnt/d/bustub/src/storage/index/b_plus_tree_index.cpp
-storage/index/b_plus_tree_index.h
-/mnt/d/bustub/src/storage/index/storage/index/b_plus_tree_index.h
-
-/mnt/d/bustub/src/storage/index/index_iterator.cpp
+/mnt/d/bustub/src/storage/table/table_heap.cpp
 cassert
 -
-storage/index/index_iterator.h
-/mnt/d/bustub/src/storage/index/storage/index/index_iterator.h
+common/logger.h
+/mnt/d/bustub/src/storage/table/common/logger.h
+storage/table/table_heap.h
+/mnt/d/bustub/src/storage/table/storage/table/table_heap.h
 
-/mnt/d/bustub/src/storage/page/b_plus_tree_leaf_page.cpp
-sstream
+/mnt/d/bustub/src/storage/table/table_iterator.cpp
+cassert
 -
-common/exception.h
-/mnt/d/bustub/src/storage/page/common/exception.h
-common/rid.h
-/mnt/d/bustub/src/storage/page/common/rid.h
-storage/page/b_plus_tree_leaf_page.h
-/mnt/d/bustub/src/storage/page/storage/page/b_plus_tree_leaf_page.h
+storage/table/table_heap.h
+/mnt/d/bustub/src/storage/table/storage/table/table_heap.h
 

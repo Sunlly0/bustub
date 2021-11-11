@@ -106,6 +106,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/hash_table_page_test.dir/DependInfo.cmake"
   "test/CMakeFiles/hash_table_test.dir/DependInfo.cmake"
   "test/CMakeFiles/executor_test.dir/DependInfo.cmake"
+  "test/CMakeFiles/grading_executor_test.dir/DependInfo.cmake"
   "test/CMakeFiles/starter_test.dir/DependInfo.cmake"
   "test/CMakeFiles/recovery_test.dir/DependInfo.cmake"
   "test/CMakeFiles/b_plus_tree_concurrent_test.dir/DependInfo.cmake"

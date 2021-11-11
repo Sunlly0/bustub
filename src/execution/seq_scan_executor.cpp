@@ -15,20 +15,40 @@ namespace bustub {
 
 SeqScanExecutor::SeqScanExecutor(ExecutorContext *exec_ctx, const SeqScanPlanNode *plan) : AbstractExecutor(exec_ctx) {
   plan_=plan;
-}
+};
 
 void SeqScanExecutor::Init() {
-  table_heap=exec_ctx_->GetCatalog()->GetTable(plan_->GetTableOid())->;
-
+  table_info_ = exec_ctx_->GetCatalog()->GetTable(plan_->GetTableOid());
+  table_heap_=table_info_->table_.get();
+  iter= table_heap_->Begin(exec_ctx_->GetTransaction());
 }
 
 bool SeqScanExecutor::Next(Tuple *tuple, RID *rid) {
-  for (auto iterator = table_heap->Begin(exec_ctx_->GetTransaction()); iterator != table_heap->end(); ++iterator) {
-//    auto location = (*iterator).second;
-//    EXPECT_EQ(location.GetPageId(), 0);
-//    EXPECT_EQ(location.GetSlotNum(), current_key);
-//    current_key = current_key + 1;
+
+//  Schema &schema = table_info_->schema_;
+  if(iter != table_heap_->End()){
+//    Tuple *tuple_=&(*iter);
+    Value res=plan_->GetPredicate()->Evaluate(&(*iter),GetOutputSchema());
+    if(res.GetAs<bool>()){
+//      *tuple= GetOutputTuple(*iter,&schema);
+      *tuple= *iter;
+      *rid=iter->GetRid();
+    }
+    iter++;
+    return true;
   }
-  return false; }
+  return false;
+}
+//
+//Tuple SeqScanExecutor::GetOutputTuple(const Tuple tuple, const Schema *schema){
+//  std::vector<Value> vals;
+//  for (const Column &col : schema->GetColumns()) {
+//    Value val = tuple.GetValue(schema, schema->GetColIdx(col.GetName()));
+//    vals.push_back(val);
+//  }
+//  return Tuple(vals,schema);
+//}
+
+//}
 
 }  // namespace bustub

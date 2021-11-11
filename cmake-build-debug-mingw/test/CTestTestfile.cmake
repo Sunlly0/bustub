@@ -24,6 +24,8 @@ add_test(hash_table_test "D:/bustub/cmake-build-debug-mingw/test/hash_table_test
 set_tests_properties(hash_table_test PROPERTIES  _BACKTRACE_TRIPLES "D:/bustub/test/CMakeLists.txt;58;add_test;D:/bustub/test/CMakeLists.txt;0;")
 add_test(executor_test "D:/bustub/cmake-build-debug-mingw/test/executor_test" "--gtest_color=yes" "--gtest_output=xml:D:/bustub/cmake-build-debug-mingw/test/executor_test.xml")
 set_tests_properties(executor_test PROPERTIES  _BACKTRACE_TRIPLES "D:/bustub/test/CMakeLists.txt;58;add_test;D:/bustub/test/CMakeLists.txt;0;")
+add_test(grading_executor_test "D:/bustub/cmake-build-debug-mingw/test/grading_executor_test" "--gtest_color=yes" "--gtest_output=xml:D:/bustub/cmake-build-debug-mingw/test/grading_executor_test.xml")
+set_tests_properties(grading_executor_test PROPERTIES  _BACKTRACE_TRIPLES "D:/bustub/test/CMakeLists.txt;58;add_test;D:/bustub/test/CMakeLists.txt;0;")
 add_test(starter_test "D:/bustub/cmake-build-debug-mingw/test/starter_test" "--gtest_color=yes" "--gtest_output=xml:D:/bustub/cmake-build-debug-mingw/test/starter_test.xml")
 set_tests_properties(starter_test PROPERTIES  _BACKTRACE_TRIPLES "D:/bustub/test/CMakeLists.txt;58;add_test;D:/bustub/test/CMakeLists.txt;0;")
 add_test(recovery_test "D:/bustub/cmake-build-debug-mingw/test/recovery_test" "--gtest_color=yes" "--gtest_output=xml:D:/bustub/cmake-build-debug-mingw/test/recovery_test.xml")

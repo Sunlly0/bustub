@@ -1027,6 +1027,64 @@
 					<DistClean command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="grading_executor_test">
+				<Option output="D:/bustub/cmake-build-debug-mingw/test/grading_executor_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/bustub/cmake-build-debug-mingw/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/bustub/src"/>
+					<Add directory="D:/bustub/src/include"/>
+					<Add directory="D:/bustub/test/include"/>
+					<Add directory="D:/bustub/third_party"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googletest/include"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googletest"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googlemock/include"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googlemock"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 grading_executor_test"/>
+					<CompileFile command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_executor_test/fast">
+				<Option output="D:/bustub/cmake-build-debug-mingw/test/grading_executor_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/bustub/cmake-build-debug-mingw/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/bustub/src"/>
+					<Add directory="D:/bustub/src/include"/>
+					<Add directory="D:/bustub/test/include"/>
+					<Add directory="D:/bustub/third_party"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googletest/include"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googletest"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googlemock/include"/>
+					<Add directory="D:/bustub/cmake-build-debug-mingw/googletest-src/googlemock"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/IDE/mingw/mingw8664/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 grading_executor_test/fast"/>
+					<CompileFile command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/IDE/mingw/mingw8664/mingw64/bin/mingw32-make.exe -f &quot;D:/bustub/cmake-build-debug-mingw/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="starter_test">
 				<Option output="D:/bustub/cmake-build-debug-mingw/test/starter_test.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="D:/bustub/cmake-build-debug-mingw/bin"/>
@@ -1915,6 +1973,9 @@
 		</Unit>
 		<Unit filename="D:/bustub/test/execution/executor_test.cpp">
 			<Option target="executor_test"/>
+		</Unit>
+		<Unit filename="D:/bustub/test/execution/grading_executor_test.cpp">
+			<Option target="grading_executor_test"/>
 		</Unit>
 		<Unit filename="D:/bustub/test/primer/starter_test.cpp">
 			<Option target="starter_test"/>
