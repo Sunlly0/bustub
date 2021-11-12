@@ -13,8 +13,9 @@
 
 namespace bustub {
 
-SeqScanExecutor::SeqScanExecutor(ExecutorContext *exec_ctx, const SeqScanPlanNode *plan) : AbstractExecutor(exec_ctx) {
-  plan_=plan;
+//SeqScanExecutor::SeqScanExecutor(ExecutorContext *exec_ctx, const SeqScanPlanNode *plan) : AbstractExecutor(exec_ctx),table_info_(exec_ctx_->GetCatalog()->GetTable(plan_->GetTableOid())),plan_(plan),table_heap_(table_info_->table_.get()),iter(table_heap_->Begin(exec_ctx_->GetTransaction())) {
+
+SeqScanExecutor::SeqScanExecutor(ExecutorContext *exec_ctx, const SeqScanPlanNode *plan) : AbstractExecutor(exec_ctx),iter(nullptr,RID(), nullptr),table_info_(exec_ctx_->GetCatalog()->GetTable(plan_->GetTableOid())),plan_(plan){
 };
 
 void SeqScanExecutor::Init() {
@@ -25,17 +26,23 @@ void SeqScanExecutor::Init() {
 
 bool SeqScanExecutor::Next(Tuple *tuple, RID *rid) {
 
-//  Schema &schema = table_info_->schema_;
+  Schema &schema = table_info_->schema_;
   if(iter != table_heap_->End()){
 //    Tuple *tuple_=&(*iter);
     Value res=plan_->GetPredicate()->Evaluate(&(*iter),GetOutputSchema());
+//    Value res=plan_->GetPredicate()->Evaluate(&(*iter),&schema);
     if(res.GetAs<bool>()){
 //      *tuple= GetOutputTuple(*iter,&schema);
       *tuple= *iter;
       *rid=iter->GetRid();
+      iter++;
+      return true;
     }
-    iter++;
-    return true;
+    else{
+      iter++;
+      return false;
+    }
+
   }
   return false;
 }

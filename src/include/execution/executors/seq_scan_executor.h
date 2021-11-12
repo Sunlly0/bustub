@@ -47,6 +47,7 @@ class SeqScanExecutor : public AbstractExecutor {
   //辅助成员
 
   TableMetadata *table_info_;
+//  TableIterator iter={nullptr,RID(), nullptr};
   TableIterator iter;
   TableHeap *table_heap_;
 //  Schema schema_;

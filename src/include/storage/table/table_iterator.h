@@ -29,7 +29,8 @@ class TableIterator {
   friend class Cursor;
 
  public:
-  TableIterator() =default;
+  //Q: add default contrustor?
+
 
   TableIterator(TableHeap *table_heap, RID rid, Transaction *txn);
 
