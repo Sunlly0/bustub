@@ -73,7 +73,7 @@ class Catalog {
    * @param txn the transaction in which the table is being created
    * @param table_name the name of the new table
    * @param schema the schema of the new table
-   * @return a pointer to the metadata of the new table
+   * @return a pointer to the metadata of the new tablehttps://plugins.zhile.io
    */
   TableMetadata *CreateTable(Transaction *txn, const std::string &table_name, const Schema &schema) {
     BUSTUB_ASSERT(names_.count(table_name) == 0, "Table names should be unique!");
@@ -99,6 +99,7 @@ class Catalog {
     auto table_oid=names_[table_name];
     if(tables_[table_oid]!=0){
       //Q：为啥要加get才行呢？
+      //A: 返回unique_ptr管理对象的指针
       return tables_[table_oid].get();
     }
     return nullptr;
@@ -132,16 +133,25 @@ class Catalog {
     //1.创建新索引（IndexMetadata）（Index）（IndexInfo），分配index_oid
     auto index_oid=next_index_oid_++;
     auto *indexmetadata=new IndexMetadata(index_name,table_name,&schema,key_attrs);
-    auto *index=new BPlusTreeIndex<KeyType, ValueType, KeyComparator>(indexmetadata,bpm_);
+    auto *index= new BPlusTreeIndex<KeyType, ValueType, KeyComparator>(indexmetadata,bpm_);
     auto *indexinfo=new IndexInfo(key_schema,index_name,static_cast<std::unique_ptr<Index>>(index),index_oid,table_name,keysize);
 
     //2.添加到hash表：indexes_（index_oid->indexmentadata）
     indexes_[index_oid]=static_cast<std::unique_ptr<IndexInfo>>(indexinfo);
 
     //3.添加到hash表：index_names_（table_name->index_name,_index_oid）
-    index_names_[table_name].insert(std::unordered_map<std::string, index_oid_t>::value_type (index_name, index_oid));
+//    index_names_[table_name]=(std::unordered_map<std::string, index_oid_t>::value_type (index_name, index_oid));
+    std::unordered_map<std::string, index_oid_t> u;
+    u[index_name]=index_oid;
+    index_names_[table_name]=u;
 
     //TODO: add index for every tuple??
+
+    // 4.对表中现有的各元组，添加进入索引
+    // iterate the whole table, insert all tuple's key into index
+    for (auto it = GetTable(table_name)->table_->Begin(txn); it != GetTable(table_name)->table_->End(); it++) {
+      index->InsertEntry(it->KeyFromTuple(schema, key_schema, key_attrs), it->GetRid(), txn);
+    }
 
     return indexinfo;
   }
@@ -167,16 +177,17 @@ class Catalog {
   }
 
   std::vector<IndexInfo *> GetTableIndexes(const std::string &table_name) {
-    if(index_names_.count(table_name)==0) {
-      throw std::out_of_range(table_name);
-    }
     //用vector保存index_info
     std::vector<IndexInfo*> index_vector;
-    //先在index_names_中找到table中所有的index_oid，再在indexes_中找到index_info.
-    for (auto &pair : index_names_[table_name]) {
-      auto index_oid=pair.second;
-//      index_vector.push_back(static_cast<IndexInfo *>(indexes_[index_oid].get()));
-      index_vector.push_back(indexes_[index_oid].get());
+    //此处不能设置成异常，否则执行测试：对空表获取索引时会出错。
+    if(index_names_.count(table_name)!=0) {
+      //throw std::out_of_range(table_name);
+      //先在index_names_中找到table中所有的index_oid，再在indexes_中找到index_info.
+      for (auto &pair : index_names_[table_name]) {
+        auto index_oid = pair.second;
+        //      index_vector.push_back(static_cast<IndexInfo *>(indexes_[index_oid].get()));
+        index_vector.push_back(indexes_[index_oid].get());
+      }
     }
     return index_vector;
   }

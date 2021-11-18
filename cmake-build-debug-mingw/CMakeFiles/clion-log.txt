@@ -7,10 +7,7 @@
 -- Build files have been written to: D:/bustub/cmake-build-debug-mingw/googletest-download
 [ 11%] Performing update step for 'googletest'
 From https://hub.fastgit.org/google/googletest
- + 0373cf28...1b154adb 4523B6410BFCD3289597FA2B5B6E18DE -> origin/4523B6410BFCD3289597FA2B5B6E18DE  (forced update)
- + 657ad480...082f3925 498B35FA518A5E1CF8C95CE6D51091B2 -> origin/498B35FA518A5E1CF8C95CE6D51091B2  (forced update)
-   16f637fb..9ca071b6  master     -> origin/master
-Previous HEAD position was 16f637fb Googletest export
+ * [new branch]        main       -> origin/main
 HEAD is now at 9ca071b6 Googletest export
 [ 22%] No patch step for 'googletest'
 [ 33%] No configure step for 'googletest'

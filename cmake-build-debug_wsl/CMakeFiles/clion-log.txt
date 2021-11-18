@@ -5,27 +5,16 @@ C:\WINDOWS\system32\wsl.exe --distribution Ubuntu --exec /bin/sh -c "export CLIO
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /mnt/d/bustub/cmake-build-debug_wsl/googletest-download
-make: Warning: File 'Makefile' has modification time 0.15 s in the future
-make[1]: Warning: File 'CMakeFiles/Makefile2' has modification time 0.26 s in the future
-make[2]: Warning: File 'CMakeFiles/googletest.dir/progress.make' has modification time 0.23 s in the future
-make[2]: warning:  Clock skew detected.  Your build may be incomplete.
-make[2]: Warning: File 'CMakeFiles/googletest.dir/progress.make' has modification time 0.19 s in the future
 [ 11%] Performing update step for 'googletest'
 From https://hub.fastgit.org/google/googletest
-   16f637fb..9ca071b6  master     -> origin/master
- + 0373cf28...1b154adb 4523B6410BFCD3289597FA2B5B6E18DE -> origin/4523B6410BFCD3289597FA2B5B6E18DE  (forced update)
- + 657ad480...082f3925 498B35FA518A5E1CF8C95CE6D51091B2 -> origin/498B35FA518A5E1CF8C95CE6D51091B2  (forced update)
-First, rewinding head to replay your work on top of it...
-Fast-forwarded master to origin/master.
+ * [new branch]        main       -> origin/main
+Current branch master is up to date.
 [ 22%] No configure step for 'googletest'
 [ 33%] No build step for 'googletest'
 [ 44%] No install step for 'googletest'
 [ 55%] No test step for 'googletest'
 [ 66%] Completed 'googletest'
-make[2]: warning:  Clock skew detected.  Your build may be incomplete.
 [100%] Built target googletest
-make[1]: warning:  Clock skew detected.  Your build may be incomplete.
-make: warning:  Clock skew detected.  Your build may be incomplete.
 -- CMAKE_CXX_FLAGS:  -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes
 -- CMAKE_CXX_FLAGS_DEBUG: -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls
 -- CMAKE_EXE_LINKER_FLAGS:  -fPIC

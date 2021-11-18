@@ -96,6 +96,7 @@ Value Tuple::GetValue(const Schema *schema, const uint32_t column_idx) const {
   return Value::DeserializeFrom(data_ptr, column_type);
 }
 
+//从原tuple中生成只带key_schema的新元组,key_attrs是key所在的列的集合， key_schema和key_attrs来源于索引
 Tuple Tuple::KeyFromTuple(const Schema &schema, const Schema &key_schema, const std::vector<uint32_t> &key_attrs) {
   std::vector<Value> values;
   values.reserve(key_attrs.size());

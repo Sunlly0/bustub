@@ -37,6 +37,7 @@ INDEX_TEMPLATE_ARGUMENTS
 void BPLUSTREE_TYPE::RealseAllWriteLock(Transaction *transaction){
   //对队伍中如果第一个是虚拟根节点的情况，直接解锁。不用UnpinPage
   std::shared_ptr<std::deque<Page *>> page_set=transaction->GetPageSet();
+  if((*page_set).empty()) return;
   if((*page_set).at(0)==&virtual_page_){
     (*page_set).pop_front();
     virtual_page_.WUnlatch();
