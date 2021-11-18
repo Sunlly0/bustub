@@ -49,6 +49,7 @@ bool SeqScanExecutor::Next(Tuple *tuple, RID *rid) {
       Value res = plan_->GetPredicate()->Evaluate(tuple, plan_->OutputSchema());
       iter++;
       // 将res转换为bool，如果满足谓词要求，则返回引用结果和return true
+
       if (res.GetAs<bool>()) {
         return true;
       }

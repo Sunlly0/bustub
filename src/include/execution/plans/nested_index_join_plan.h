@@ -66,5 +66,8 @@ class NestedIndexJoinPlanNode : public AbstractPlanNode {
   const std::string index_name_;
   const Schema *outer_table_schema_;
   const Schema *inner_table_schema_;
+
+
+
 };
 }  // namespace bustub
