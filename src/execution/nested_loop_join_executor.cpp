@@ -50,6 +50,7 @@ bool NestedLoopJoinExecutor::Next(Tuple *tuple, RID *rid) {
           std::vector<Value> right_values = GetAllValues(right_tuple,right_schema);
           left_values.insert(left_values.end(), right_values.begin(), right_values.end());
           *tuple=Tuple(left_values, plan_->OutputSchema());
+          *rid=tuple->GetRid();
           return true;
         }
       }

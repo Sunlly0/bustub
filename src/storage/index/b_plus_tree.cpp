@@ -95,7 +95,10 @@ bool BPLUSTREE_TYPE::GetValue(const KeyType &key, std::vector<ValueType> *result
     //找到叶子节点，则调用Lookup函数，返回查找的bool结果
     RID v;
     auto isexist = leaf->Lookup(key, &v, comparator_);
-    result->push_back(v);
+    if(isexist){
+      result->push_back(v);
+    }
+
 
     /**并发控制：在读取结束，unpin之前释放读锁（R）**/
     if(transaction!= nullptr){
