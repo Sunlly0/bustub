@@ -270,7 +270,7 @@ N *BPLUSTREE_TYPE::Split(N *node) {
 INDEX_TEMPLATE_ARGUMENTS
 void BPLUSTREE_TYPE::InsertIntoParent(BPlusTreePage *old_node, const KeyType &key, BPlusTreePage *new_node,
                                       Transaction *transaction) {
-  transaction = nullptr;
+//  transaction = nullptr;
   page_id_t ppage_id = old_node->GetParentPageId();
   // 1. 如果父节点为空，就说明分裂的节点已经是根节点。需要新建一个根节点
   // Q: 此处是否要调用bpm新取页？
@@ -297,7 +297,7 @@ void BPLUSTREE_TYPE::InsertIntoParent(BPlusTreePage *old_node, const KeyType &ke
       InsertIntoParent(ppage, newppage->KeyAt(0), newppage);
     }
   }
-  buffer_pool_manager_->UnpinPage(ppage_id, true);
+//  buffer_pool_manager_->UnpinPage(ppage_id, true);
 }
 
 /*****************************************************************************
@@ -335,7 +335,7 @@ void BPLUSTREE_TYPE::Remove(const KeyType &key, Transaction *transaction) {
         //2.1.1. 删除后，叶子节点的size不满足最小值，向兄弟节点借元素或合并
         if(size<leaf->GetMinSize()){
           //返回页面是否删除。实际的删除在Coalesce中执行。
-          CoalesceOrRedistribute(leaf);
+          CoalesceOrRedistribute(leaf,transaction);
         }
       }
       //2.1.2.满足条件，删除结束
@@ -355,7 +355,6 @@ void BPLUSTREE_TYPE::Remove(const KeyType &key, Transaction *transaction) {
 INDEX_TEMPLATE_ARGUMENTS
 template <typename N>
 bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
-  transaction= nullptr;
   //0.如果是根节点，使用根节点的特殊的判断规则
   if(node->IsRootPage()){
     return AdjustRoot(node);
@@ -371,30 +370,34 @@ bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
     //并发控制：兄弟节点上锁并入列（W）;
     Page *siblingpage=buffer_pool_manager_->FetchPage(lpage_id);
     siblingpage->WLatch();
-    transaction->AddIntoPageSet(siblingpage);
     /*****/
     N *lsibling = reinterpret_cast<N *>(siblingpage);
     if(lsibling->GetSize()+node->GetSize()>node->GetMaxSize()) {
+      transaction->AddIntoPageSet(siblingpage);
       Redistribute(lsibling, node, 1);
       buffer_pool_manager_->UnpinPage(lpage_id,true);
       return false;
     }
+    siblingpage->WUnlatch();
   }
 
-    //2.在节点不是最右边，且左兄弟借不到的情况下，判断能否从右边兄弟借元素
-    if(index<ppage->GetSize()) {
-      auto rpage_id = ppage->ValueAt(index + 1);
-      //并发控制：兄弟节点上锁并入列（W）;
-      Page *siblingpage=buffer_pool_manager_->FetchPage(rpage_id);
-      siblingpage->WLatch();
+  //2.在节点不是最右边，且左兄弟借不到的情况下，判断能否从右边兄弟借元素
+  if(index<ppage->GetSize()) {
+    auto rpage_id = ppage->ValueAt(index + 1);
+    //并发控制：兄弟节点上锁并入列（W）;
+    Page *siblingpage=buffer_pool_manager_->FetchPage(rpage_id);
+    siblingpage->WLatch();
+
+    /*****/
+    N *rsibling = reinterpret_cast<N *>(siblingpage);
+    if (rsibling->GetSize() + node->GetSize() > node->GetMaxSize()) {
       transaction->AddIntoPageSet(siblingpage);
-      /*****/
-      N *rsibling = reinterpret_cast<N *>(siblingpage);
-      if (rsibling->GetSize() + node->GetSize() > node->GetMaxSize()) {
-        Redistribute(rsibling, node, 0);
-        return false;
-      }
+      Redistribute(rsibling, node, 0);
+      return false;
     }
+    siblingpage->WUnlatch();
+  }
+
 
 
   //3 节点是最左边且右兄弟不能借元素，和右边兄弟合并
@@ -403,13 +406,15 @@ bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
     //并发控制：兄弟节点上锁并入列（W）;
     Page *siblingpage=buffer_pool_manager_->FetchPage(rpage_id);
     siblingpage->WLatch();
-    transaction->AddIntoPageSet(siblingpage);
+
     /*****/
     N *rsibling = reinterpret_cast<N *>(siblingpage);
     if (rsibling->GetSize() + node->GetSize() > node->GetMaxSize()) {
+      transaction->AddIntoPageSet(siblingpage);
       buffer_pool_manager_->UnpinPage(rpage_id,true);
       return true;
     }
+    siblingpage->WUnlatch();
   }
 
   //4. 在节点不是最左边，且左右兄弟都借不到元素，和左边兄弟合并
@@ -418,14 +423,16 @@ bool BPLUSTREE_TYPE::CoalesceOrRedistribute(N *node, Transaction *transaction) {
     //并发控制：兄弟节点上锁并入列（W）;
     Page *siblingpage=buffer_pool_manager_->FetchPage(lpage_id);
     siblingpage->WLatch();
-    transaction->AddIntoPageSet(siblingpage);
+
     /*****/
     N *lsibling = reinterpret_cast<N *>(siblingpage);
     if(lsibling->GetSize()+node->GetSize()>node->GetMaxSize()) {
+      transaction->AddIntoPageSet(siblingpage);
       Coalesce(&lsibling, &node ,&ppage,index);
       buffer_pool_manager_->UnpinPage(lpage_id,true);
       return true;
     }
+    siblingpage->WUnlatch();
   }
   return false;
 }
@@ -447,7 +454,6 @@ template <typename N>
 bool BPLUSTREE_TYPE::Coalesce(N **neighbor_node, N **node,
                               BPlusTreeInternalPage<KeyType, page_id_t, KeyComparator> **parent, int index,
                               Transaction *transaction) {
-  transaction= nullptr;
   int n_index=(*parent)->ValueIndex((*neighbor_node)->GetPageId());
 
   //1.节点是叶子节点
@@ -735,8 +741,9 @@ Page *BPLUSTREE_TYPE::FindLeafPage(const KeyType &key,bool leftMost,TreeOptionTy
       }
       page_id=cpage_id;
       page=buffer_pool_manager_->FetchPage(page_id);
-      page->WLatch();
       bpage = reinterpret_cast<BPlusTreePage *>(page);
+      page->WLatch();
+      transaction->AddIntoPageSet(page);
     }
     /*****/
   }

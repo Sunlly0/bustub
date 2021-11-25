@@ -41,16 +41,18 @@ bool SeqScanExecutor::Next(Tuple *tuple, RID *rid) {
     //1. 没有谓词限定，直接返回true
     if(plan_->GetPredicate()==nullptr){
       iter++;
+      *tuple= GetOutputTuple(*tuple,GetOutputSchema());
       return true;
     }
     else{
       // 2. 判断元素是否满足谓词要求
       // 此处是否能在schema直接用outputschema?
-      Value res = plan_->GetPredicate()->Evaluate(tuple, plan_->OutputSchema());
+      Value res = plan_->GetPredicate()->Evaluate(tuple, &table_info_->schema_);
       iter++;
       // 将res转换为bool，如果满足谓词要求，则返回引用结果和return true
 
       if (res.GetAs<bool>()) {
+        *tuple= GetOutputTuple(*tuple,GetOutputSchema());
         return true;
       }
     }
@@ -58,15 +60,15 @@ bool SeqScanExecutor::Next(Tuple *tuple, RID *rid) {
   }
   return false;
 }
-//
-//Tuple SeqScanExecutor::GetOutputTuple(const Tuple tuple, const Schema *schema){
-//  std::vector<Value> vals;
-//  for (const Column &col : schema->GetColumns()) {
-//    Value val = tuple.GetValue(schema, schema->GetColIdx(col.GetName()));
-//    vals.push_back(val);
-//  }
-//  return Tuple(vals,schema);
-//}
+
+Tuple SeqScanExecutor::GetOutputTuple(const Tuple tuple, const Schema *schema){
+  std::vector<Value> vals;
+  for (const Column &col : schema->GetColumns()) {
+    Value val = tuple.GetValue(schema, schema->GetColIdx(col.GetName()));
+    vals.push_back(val);
+  }
+  return Tuple(vals,schema);
+}
 
 //}
 

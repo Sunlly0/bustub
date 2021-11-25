@@ -40,7 +40,7 @@ class IndexScanExecutor : public AbstractExecutor {
   void Init() override;
 
   bool Next(Tuple *tuple, RID *rid) override;
-
+  Tuple GetOutputTuple(const Tuple tuple, const Schema *schema);
  private:
   /** The index scan plan node to be executed. */
   const IndexScanPlanNode *plan_;

@@ -132,28 +132,45 @@ class Catalog {
                          size_t keysize) {
     //1.创建新索引（IndexMetadata）（Index）（IndexInfo），分配index_oid
     auto index_oid=next_index_oid_++;
-    auto *indexmetadata=new IndexMetadata(index_name,table_name,&schema,key_attrs);
-    auto *index= new BPlusTreeIndex<KeyType, ValueType, KeyComparator>(indexmetadata,bpm_);
-    auto *indexinfo=new IndexInfo(key_schema,index_name,static_cast<std::unique_ptr<Index>>(index),index_oid,table_name,keysize);
+    auto indexmetadata=new IndexMetadata(index_name,table_name,&schema,key_attrs);
+    auto index= std::make_unique<BPlusTreeIndex<KeyType, ValueType, KeyComparator>>(indexmetadata,bpm_);
 
-    //2.添加到hash表：indexes_（index_oid->indexmentadata）
-    indexes_[index_oid]=static_cast<std::unique_ptr<IndexInfo>>(indexinfo);
 
     //3.添加到hash表：index_names_（table_name->index_name,_index_oid）
 //    index_names_[table_name]=(std::unordered_map<std::string, index_oid_t>::value_type (index_name, index_oid));
-    std::unordered_map<std::string, index_oid_t> u;
-    u[index_name]=index_oid;
-    index_names_[table_name]=u;
+//    std::unordered_map<std::string, index_oid_t> u;
+//    u[index_name]=index_oid;
+    index_names_[table_name].insert({index_name,index_oid});
 
     //TODO: add index for every tuple??
 
     // 4.对表中现有的各元组，添加进入索引
+    //Q: 此处死循环，最后发现findleafpage函数中最后有地方加锁后忘了解锁
     // iterate the whole table, insert all tuple's key into index
+//    int num=0;
+
     for (auto it = GetTable(table_name)->table_->Begin(txn); it != GetTable(table_name)->table_->End(); it++) {
       index->InsertEntry(it->KeyFromTuple(schema, key_schema, key_attrs), it->GetRid(), txn);
+//      num++;
+//      std::cout<<num;
+//       LOG_INFO("%d, add a new index: %d into table %s, it: ", num,index_names_[table_name].find(index_name)->second,
+//               table_name.data());
     }
 
-    return indexinfo;
+//    //为每个元组添加索引
+//    TableHeap *table = GetTable(table_name)->table_.get();
+//    auto it = table->Begin(txn);
+//    while(it != table->End()){
+//      index->InsertEntry(it->KeyFromTuple(schema,key_schema,key_attrs),it->GetRid(),txn);
+//      ++it;
+//    }
+
+    //2.添加到hash表：indexes_（index_oid->indexmentadata）
+    indexes_[index_oid]=std::make_unique<IndexInfo>(key_schema,index_name,std::move(index),index_oid,table_name,keysize);
+
+    return indexes_[index_oid].get();
+
+
   }
 
   IndexInfo *GetIndex(const std::string &index_name, const std::string &table_name) {

@@ -38,14 +38,14 @@ bool DeleteExecutor::Next([[maybe_unused]] Tuple *tuple, RID *rid) {
   if (child_executor_->Next(tuple, rid)) {
     //对表中的元组进行删除
     //此处用的MarkDelete，在后续事务提交时才会真正删除
-    table_heap_->MarkDelete(*rid, exec_ctx_->GetTransaction());
-
-    //Q:由于上面是MarkDelete，此处是否需要删除索引？
-    for(auto &index_info:all_index_info_){
-      auto index_key=tuple->KeyFromTuple(table_info_->schema_,index_info->key_schema_,index_info->index_->GetKeyAttrs());
-      index_info->index_->DeleteEntry(index_key,*rid,exec_ctx_->GetTransaction());
+    if(table_heap_->MarkDelete(*rid, exec_ctx_->GetTransaction())){
+      //Q:由于上面是MarkDelete，此处是否需要删除索引？
+      for(auto &index_info:all_index_info_){
+        auto index_key=tuple->KeyFromTuple(table_info_->schema_,index_info->key_schema_,index_info->index_->GetKeyAttrs());
+        index_info->index_->DeleteEntry(index_key,*rid,exec_ctx_->GetTransaction());
+      }
+      return true;
     }
-    return true;
   }
   return false;
 

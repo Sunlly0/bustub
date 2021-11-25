@@ -39,6 +39,8 @@ class SeqScanPlanNode : public AbstractPlanNode {
   /** @return the identifier of the table that should be scanned */
   table_oid_t GetTableOid() const { return table_oid_; }
 
+
+
  private:
   /** The predicate that all returned tuples must satisfy. */
   const AbstractExpression *predicate_;

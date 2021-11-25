@@ -31,23 +31,23 @@ void NestedLoopJoinExecutor::Init() {
 }
 
 bool NestedLoopJoinExecutor::Next(Tuple *tuple, RID *rid) {
-  Tuple *left_tuple=new Tuple();
-  Tuple *right_tuple=new Tuple();
-  while(left_executor_->Next(left_tuple,rid)){
-    while(right_executor_->Next(right_tuple,rid)){
+  Tuple left_tuple;
+  Tuple right_tuple;
+  while(left_executor_->Next(&left_tuple,rid)){
+    while(right_executor_->Next(&right_tuple,rid)){
       if(plan_->Predicate()== nullptr){
-        std::vector<Value> left_values = GetAllValues(left_tuple,left_schema);
-        std::vector<Value> right_values = GetAllValues(right_tuple,right_schema);
+        std::vector<Value> left_values = GetAllValues(&left_tuple,left_schema);
+        std::vector<Value> right_values = GetAllValues(&right_tuple,right_schema);
         left_values.insert(left_values.end(), right_values.begin(), right_values.end());
         *tuple=Tuple(left_values, plan_->OutputSchema());
         return true;
       }
       else{
-        Value res = plan_->Predicate()->EvaluateJoin(left_tuple,left_schema,right_tuple,right_schema);
+        Value res = plan_->Predicate()->EvaluateJoin(&left_tuple,left_schema,&right_tuple,right_schema);
         if(res.GetAs<bool>()){
           //拼接元组
-          std::vector<Value> left_values = GetAllValues(left_tuple,left_schema);
-          std::vector<Value> right_values = GetAllValues(right_tuple,right_schema);
+          std::vector<Value> left_values = GetAllValues(&left_tuple,left_schema);
+          std::vector<Value> right_values = GetAllValues(&right_tuple,right_schema);
           left_values.insert(left_values.end(), right_values.begin(), right_values.end());
           *tuple=Tuple(left_values, plan_->OutputSchema());
           *rid=tuple->GetRid();

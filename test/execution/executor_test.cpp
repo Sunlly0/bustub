@@ -378,7 +378,7 @@ TEST_F(ExecutorTest, SimpleDeleteTest) {
   ASSERT_TRUE(result_set.empty());
 
   std::vector<RID> rids;
-
+//  index_info->index_->ScanKey(index_key.KeyFromTuple(table_info->schema_,index_info->key_schema_,index_info->index_->GetMetadata()->GetKeyAttrs()), &rids, GetTxn());
   index_info->index_->ScanKey(index_key, &rids, GetTxn());
   ASSERT_TRUE(rids.empty());
 
@@ -487,7 +487,7 @@ TEST_F(ExecutorTest, SimpleAggregationTest) {
 }
 
 // NOLINTNEXTLINE
-TEST_F(ExecutorTest, DISABLED_SimpleGroupByAggregation) {
+TEST_F(ExecutorTest, SimpleGroupByAggregation) {
   // SELECT count(colA), colB, sum(colC) FROM test_1 Group By colB HAVING count(colA) > 100
   std::unique_ptr<AbstractPlanNode> scan_plan;
   const Schema *scan_schema;
