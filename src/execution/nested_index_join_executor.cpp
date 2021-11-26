@@ -38,7 +38,7 @@ bool NestIndexJoinExecutor::Next(Tuple *tuple, RID *rid) {
         left_tuple.KeyFromTuple(*(plan_->OuterTableSchema()), index_info_->key_schema_, index_->GetKeyAttrs());
     index_->ScanKey(index_key, &rid_index, exec_ctx_->GetTransaction());
     if (rid_index.size() > 0) {
-      bool res = table_heap_->GetTuple(rid_index.at(0), &right_tuple, exec_ctx_->GetTransaction());
+      table_heap_->GetTuple(rid_index.at(0), &right_tuple, exec_ctx_->GetTransaction());
       std::vector<Value> left_values = GetAllValues(&left_tuple, plan_->OuterTableSchema());
       std::vector<Value> right_values = GetAllValues(&right_tuple, plan_->InnerTableSchema());
       left_values.insert(left_values.end(), right_values.begin(), right_values.end());
