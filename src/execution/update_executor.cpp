@@ -49,8 +49,11 @@ bool UpdateExecutor::Next([[maybe_unused]] Tuple *tuple, RID *rid) {
       auto index=index_info->index_.get();
       auto index_key=tuple->KeyFromTuple(table_info_->schema_,index_info->key_schema_,index->GetKeyAttrs());
       index->DeleteEntry(index_key,*rid,exec_ctx_->GetTransaction());
+      index_key=updated_tuple.KeyFromTuple(table_info_->schema_,index_info->key_schema_,index->GetKeyAttrs());
       index->InsertEntry(index_key,*rid,exec_ctx_->GetTransaction());
     }
+
+    *tuple=updated_tuple;
 
     return true;
   }

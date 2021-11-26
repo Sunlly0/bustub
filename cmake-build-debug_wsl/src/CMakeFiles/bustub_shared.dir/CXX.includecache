@@ -146,6 +146,12 @@ mutex
 common/macros.h
 ../src/include/common/common/macros.h
 
+../src/include/common/util/string_util.h
+string
+-
+vector
+-
+
 ../src/include/concurrency/lock_manager.h
 algorithm
 -
@@ -210,19 +216,23 @@ execution/executor_context.h
 storage/table/tuple.h
 ../src/include/execution/executors/storage/table/tuple.h
 
-../src/include/execution/executors/insert_executor.h
+../src/include/execution/executors/update_executor.h
 memory
 -
 utility
+-
+vector
 -
 execution/executor_context.h
 ../src/include/execution/executors/execution/executor_context.h
 execution/executors/abstract_executor.h
 ../src/include/execution/executors/execution/executors/abstract_executor.h
-execution/plans/insert_plan.h
-../src/include/execution/executors/execution/plans/insert_plan.h
+execution/plans/update_plan.h
+../src/include/execution/executors/execution/plans/update_plan.h
 storage/table/tuple.h
 ../src/include/execution/executors/storage/table/tuple.h
+type/value_factory.h
+../src/include/execution/executors/type/value_factory.h
 
 ../src/include/execution/expressions/abstract_expression.h
 utility
@@ -242,10 +252,10 @@ vector
 catalog/schema.h
 ../src/include/execution/plans/catalog/schema.h
 
-../src/include/execution/plans/insert_plan.h
-utility
+../src/include/execution/plans/update_plan.h
+unordered_map
 -
-vector
+utility
 -
 catalog/catalog.h
 ../src/include/execution/plans/catalog/catalog.h
@@ -444,6 +454,26 @@ common/rid.h
 type/value.h
 ../src/include/storage/table/type/value.h
 
+../src/include/type/abstract_pool.h
+cstdlib
+-
+
+../src/include/type/boolean_type.h
+string
+-
+common/exception.h
+../src/include/type/common/exception.h
+type/type.h
+../src/include/type/type/type.h
+type/value.h
+../src/include/type/type/value.h
+
+../src/include/type/decimal_type.h
+string
+-
+type/numeric_type.h
+../src/include/type/type/numeric_type.h
+
 ../src/include/type/limits.h
 cfloat
 -
@@ -453,6 +483,20 @@ cstdint
 -
 limits
 -
+
+../src/include/type/numeric_type.h
+cmath
+-
+type/value.h
+../src/include/type/type/value.h
+
+../src/include/type/timestamp_type.h
+string
+-
+type/abstract_pool.h
+../src/include/type/type/abstract_pool.h
+type/value.h
+../src/include/type/type/value.h
 
 ../src/include/type/type.h
 cstdint
@@ -476,9 +520,41 @@ type/limits.h
 type/type.h
 ../src/include/type/type/type.h
 
-/mnt/d/bustub/src/execution/insert_executor.cpp
+../src/include/type/value_factory.h
+algorithm
+-
+stdexcept
+-
+string
+-
+common/macros.h
+../src/include/type/common/macros.h
+common/util/string_util.h
+../src/include/type/common/util/string_util.h
+type/abstract_pool.h
+../src/include/type/type/abstract_pool.h
+type/boolean_type.h
+../src/include/type/type/boolean_type.h
+type/decimal_type.h
+../src/include/type/type/decimal_type.h
+type/numeric_type.h
+../src/include/type/type/numeric_type.h
+type/timestamp_type.h
+../src/include/type/type/timestamp_type.h
+type/value.h
+../src/include/type/type/value.h
+type/varlen_type.h
+../src/include/type/type/varlen_type.h
+
+../src/include/type/varlen_type.h
+string
+-
+type/value.h
+../src/include/type/type/value.h
+
+/mnt/d/bustub/src/execution/update_executor.cpp
 memory
 -
-execution/executors/insert_executor.h
-/mnt/d/bustub/src/execution/execution/executors/insert_executor.h
+execution/executors/update_executor.h
+/mnt/d/bustub/src/execution/execution/executors/update_executor.h
 
