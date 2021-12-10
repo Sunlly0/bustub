@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="8" failures="0" disabled="0" errors="0" time="0.442" timestamp="2021-12-10T19:13:23.483" name="AllTests">
+  <testsuite name="ExecutorTest" tests="8" failures="0" disabled="0" skipped="0" errors="0" time="0.442" timestamp="2021-12-10T19:13:23.483">
+    <testcase name="SimpleSeqScanTest" status="run" result="completed" time="0.056" timestamp="2021-12-10T19:13:23.483" classname="ExecutorTest" />
+    <testcase name="SimpleRawInsertTest" status="run" result="completed" time="0.054" timestamp="2021-12-10T19:13:23.540" classname="ExecutorTest" />
+    <testcase name="SimpleSelectInsertTest" status="run" result="completed" time="0.055" timestamp="2021-12-10T19:13:23.594" classname="ExecutorTest" />
+    <testcase name="SimpleRawInsertWithIndexTest" status="run" result="completed" time="0.054" timestamp="2021-12-10T19:13:23.649" classname="ExecutorTest" />
+    <testcase name="SimpleDeleteTest" status="run" result="completed" time="0.055" timestamp="2021-12-10T19:13:23.704" classname="ExecutorTest" />
+    <testcase name="SimpleNestedLoopJoinTest" status="run" result="completed" time="0.055" timestamp="2021-12-10T19:13:23.760" classname="ExecutorTest" />
+    <testcase name="SimpleAggregationTest" status="run" result="completed" time="0.055" timestamp="2021-12-10T19:13:23.815" classname="ExecutorTest" />
+    <testcase name="SimpleGroupByAggregation" status="run" result="completed" time="0.054" timestamp="2021-12-10T19:13:23.870" classname="ExecutorTest" />
+  </testsuite>
+</testsuites>

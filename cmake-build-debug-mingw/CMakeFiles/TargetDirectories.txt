@@ -44,7 +44,6 @@ D:/bustub/cmake-build-debug-mingw/src/CMakeFiles/test.dir
 D:/bustub/cmake-build-debug-mingw/src/CMakeFiles/list_install_components.dir
 D:/bustub/cmake-build-debug-mingw/src/CMakeFiles/install/strip.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/build-tests.dir
-D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/lock_manager_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/buffer_pool_manager_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/check-tests.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/clock_replacer_test.dir
@@ -53,6 +52,11 @@ D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/catalog_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/lru_replacer_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/transaction_test.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/grading_lock_manager_1_test.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/grading_lock_manager_2_test.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_insert_test.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/grading_lock_manager_3_test.dir
+D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/lock_manager_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/hash_table_page_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/hash_table_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/executor_test.dir
@@ -62,7 +66,6 @@ D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/starter_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/recovery_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_concurrent_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_delete_test.dir
-D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_insert_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/b_plus_tree_print_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/grading_b_plus_tree_test.dir
 D:/bustub/cmake-build-debug-mingw/test/CMakeFiles/disk_manager_test.dir

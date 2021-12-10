@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="6" failures="1" disabled="5" errors="0" time="0.051" timestamp="2021-12-10T19:13:23.095" name="AllTests">
+  <testsuite name="LockManagerTest" tests="6" failures="1" disabled="5" skipped="0" errors="0" time="0.051" timestamp="2021-12-10T19:13:23.095">
+    <testcase name="BasicTest" status="run" result="completed" time="0.051" timestamp="2021-12-10T19:13:23.095" classname="LockManagerTest">
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+      <failure message="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23&#x0A;Expected equality of these values:&#x0A;  txn-&gt;GetState()&#x0A;    Which is: 4-byte object &lt;00-00 00-00&gt;&#x0A;  TransactionState::SHRINKING&#x0A;    Which is: 4-byte object &lt;01-00 00-00&gt;" type=""><![CDATA[/mnt/d/bustub/test/concurrency/lock_manager_test.cpp:23
+Expected equality of these values:
+  txn->GetState()
+    Which is: 4-byte object <00-00 00-00>
+  TransactionState::SHRINKING
+    Which is: 4-byte object <01-00 00-00>]]></failure>
+    </testcase>
+    <testcase name="DISABLED_TwoPLTest" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T08:00:00.000" classname="LockManagerTest" />
+    <testcase name="DISABLED_UpgradeLockTest" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T08:00:00.000" classname="LockManagerTest" />
+    <testcase name="DISABLED_GraphEdgeTest" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T08:00:00.000" classname="LockManagerTest" />
+    <testcase name="DISABLED_BasicCycleTest" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T08:00:00.000" classname="LockManagerTest" />
+    <testcase name="DISABLED_BasicDeadlockDetectionTest" status="notrun" result="suppressed" time="0" timestamp="1970-01-01T08:00:00.000" classname="LockManagerTest" />
+  </testsuite>
+</testsuites>

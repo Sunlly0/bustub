@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="0" disabled="0" errors="0" time="0.029" timestamp="2021-12-10T19:13:26.289" name="AllTests">
+  <testsuite name="BPlusTreeTests" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.028" timestamp="2021-12-10T19:13:26.290">
+    <testcase name="InsertTest1" status="run" result="completed" time="0.023" timestamp="2021-12-10T19:13:26.290" classname="BPlusTreeTests" />
+    <testcase name="InsertTest2" status="run" result="completed" time="0.004" timestamp="2021-12-10T19:13:26.314" classname="BPlusTreeTests" />
+  </testsuite>
+</testsuites>

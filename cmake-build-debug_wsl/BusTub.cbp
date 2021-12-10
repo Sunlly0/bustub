@@ -439,126 +439,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/src/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hash_table_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="hash_table_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="buffer_pool_manager_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/buffer_pool_manager_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 buffer_pool_manager_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="buffer_pool_manager_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/buffer_pool_manager_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 buffer_pool_manager_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="lru_replacer_test">
 				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/lru_replacer_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
@@ -739,8 +619,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="grading_executor_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_executor_test" prefix_auto="0" extension_auto="0"/>
+			<Target title="grading_lock_manager_2_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_lock_manager_2_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -763,14 +643,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_executor_test"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_lock_manager_2_test"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="grading_executor_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_executor_test" prefix_auto="0" extension_auto="0"/>
+			<Target title="grading_lock_manager_2_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_lock_manager_2_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -793,67 +673,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_executor_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="recovery_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/recovery_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 recovery_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="recovery_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/recovery_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 recovery_test/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_lock_manager_2_test/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
@@ -919,8 +739,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="grading_b_plus_tree_checkpoint_1_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_checkpoint_1_test" prefix_auto="0" extension_auto="0"/>
+			<Target title="grading_lock_manager_3_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_lock_manager_3_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -943,14 +763,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_b_plus_tree_checkpoint_1_test"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_lock_manager_3_test"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="grading_b_plus_tree_checkpoint_1_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_checkpoint_1_test" prefix_auto="0" extension_auto="0"/>
+			<Target title="grading_lock_manager_3_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_lock_manager_3_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -973,17 +793,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_b_plus_tree_checkpoint_1_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="check-tests">
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/test"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 check-tests"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_lock_manager_3_test/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1049,191 +859,131 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="buffer_pool_manager_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/buffer_pool_manager_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 buffer_pool_manager_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="buffer_pool_manager_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/buffer_pool_manager_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 buffer_pool_manager_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hash_table_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hash_table_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="build-tests">
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/test"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 build-tests"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="starter_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/starter_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 starter_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="starter_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/starter_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 starter_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="executor_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/executor_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 executor_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="executor_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/executor_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 executor_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rwlatch_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/rwlatch_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 rwlatch_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rwlatch_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/rwlatch_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 rwlatch_test/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1354,6 +1104,556 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 b_plus_tree_delete_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rwlatch_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/rwlatch_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 rwlatch_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rwlatch_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/rwlatch_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 rwlatch_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="executor_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/executor_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 executor_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="executor_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/executor_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 executor_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_lock_manager_1_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_lock_manager_1_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_lock_manager_1_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_lock_manager_1_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_lock_manager_1_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_lock_manager_1_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_executor_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_executor_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_executor_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_executor_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_executor_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_executor_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="recovery_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/recovery_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 recovery_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="recovery_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/recovery_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 recovery_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="clock_replacer_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/clock_replacer_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clock_replacer_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="clock_replacer_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/clock_replacer_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clock_replacer_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="b_plus_tree_insert_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/b_plus_tree_insert_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 b_plus_tree_insert_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="b_plus_tree_insert_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/b_plus_tree_insert_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 b_plus_tree_insert_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="check-tests">
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/test"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 check-tests"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_b_plus_tree_checkpoint_1_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_checkpoint_1_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_b_plus_tree_checkpoint_1_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grading_b_plus_tree_checkpoint_1_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/grading_b_plus_tree_checkpoint_1_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 grading_b_plus_tree_checkpoint_1_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="starter_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/starter_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 starter_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="starter_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/starter_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 starter_test/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
@@ -1599,186 +1899,6 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="hash_table_page_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_page_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_page_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="hash_table_page_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_page_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_page_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="clock_replacer_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/clock_replacer_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clock_replacer_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="clock_replacer_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/clock_replacer_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clock_replacer_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="b_plus_tree_insert_test">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/b_plus_tree_insert_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 b_plus_tree_insert_test"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="b_plus_tree_insert_test/fast">
-				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/b_plus_tree_insert_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/mnt/d/bustub/src"/>
-					<Add directory="/mnt/d/bustub/src/include"/>
-					<Add directory="/mnt/d/bustub/test/include"/>
-					<Add directory="/mnt/d/bustub/third_party"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
-					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 b_plus_tree_insert_test/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="tuple_test">
 				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/tuple_test" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
@@ -1839,6 +1959,66 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="hash_table_page_test">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_page_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_page_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="hash_table_page_test/fast">
+				<Option output="/mnt/d/bustub/cmake-build-debug_wsl/test/hash_table_page_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/d/bustub/cmake-build-debug_wsl/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/d/bustub/src"/>
+					<Add directory="/mnt/d/bustub/src/include"/>
+					<Add directory="/mnt/d/bustub/test/include"/>
+					<Add directory="/mnt/d/bustub/third_party"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googletest"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/include"/>
+					<Add directory="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 hash_table_page_test/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/d/bustub/cmake-build-debug_wsl/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/mnt/d/bustub/cmake-build-debug_wsl/googletest-src/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
@@ -1874,15 +2054,6 @@
 			<Option target="bustub_shared"/>
 		</Unit>
 		<Unit filename="/mnt/d/bustub/src/common/util/string_util.cpp">
-			<Option target="bustub_shared"/>
-		</Unit>
-		<Unit filename="/mnt/d/bustub/src/concurrency/grading_lock_manager_1_test.cpp">
-			<Option target="bustub_shared"/>
-		</Unit>
-		<Unit filename="/mnt/d/bustub/src/concurrency/grading_lock_manager_2_test.cpp">
-			<Option target="bustub_shared"/>
-		</Unit>
-		<Unit filename="/mnt/d/bustub/src/concurrency/grading_lock_manager_3_test.cpp">
 			<Option target="bustub_shared"/>
 		</Unit>
 		<Unit filename="/mnt/d/bustub/src/concurrency/lock_manager.cpp">
@@ -2025,6 +2196,15 @@
 		</Unit>
 		<Unit filename="/mnt/d/bustub/test/common/rwlatch_test.cpp">
 			<Option target="rwlatch_test"/>
+		</Unit>
+		<Unit filename="/mnt/d/bustub/test/concurrency/grading_lock_manager_1_test.cpp">
+			<Option target="grading_lock_manager_1_test"/>
+		</Unit>
+		<Unit filename="/mnt/d/bustub/test/concurrency/grading_lock_manager_2_test.cpp">
+			<Option target="grading_lock_manager_2_test"/>
+		</Unit>
+		<Unit filename="/mnt/d/bustub/test/concurrency/grading_lock_manager_3_test.cpp">
+			<Option target="grading_lock_manager_3_test"/>
 		</Unit>
 		<Unit filename="/mnt/d/bustub/test/concurrency/lock_manager_test.cpp">
 			<Option target="lock_manager_test"/>
