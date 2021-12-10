@@ -34,13 +34,13 @@ namespace bustub {
  * GROWING -> SHRINKING -> COMMITTED   ABORTED
  *    |__________|________________________^
  *
- * Transaction states for Non-2PL:
- *     __________
- *    |          v
- * GROWING  -> COMMITTED     ABORTED
- *    |_________________________^
- *
- **/
+* Transaction states for Non-2PL:
+*     __________
+*    |          v
+* GROWING  -> COMMITTED     ABORTED
+*    |_________________________^
+*
+**/
 enum class TransactionState { GROWING, SHRINKING, COMMITTED, ABORTED };
 
 /**
@@ -273,5 +273,6 @@ class Transaction {
   /** LockManager: the set of exclusive-locked tuples held by this transaction. */
   std::shared_ptr<std::unordered_set<RID>> exclusive_lock_set_;
 };
+
 
 }  // namespace bustub

@@ -6,9 +6,7 @@ C:\WINDOWS\system32\wsl.exe --distribution Ubuntu --exec /bin/sh -c "export CLIO
 -- Generating done
 -- Build files have been written to: /mnt/d/bustub/cmake-build-debug_wsl/googletest-download
 [ 11%] Performing update step for 'googletest'
-From https://hub.fastgit.org/google/googletest
- * [new branch]        main       -> origin/main
-Current branch master is up to date.
+Current branch test_update_executor is up to date.
 [ 22%] No configure step for 'googletest'
 [ 33%] No build step for 'googletest'
 [ 44%] No install step for 'googletest'

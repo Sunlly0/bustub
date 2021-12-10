@@ -6,8 +6,6 @@
 -- Generating done
 -- Build files have been written to: D:/bustub/cmake-build-debug-mingw/googletest-download
 [ 11%] Performing update step for 'googletest'
-From https://hub.fastgit.org/google/googletest
- * [new branch]        main       -> origin/main
 HEAD is now at 9ca071b6 Googletest export
 [ 22%] No patch step for 'googletest'
 [ 33%] No configure step for 'googletest'

@@ -66,6 +66,21 @@
 },
 {
   "directory": "/mnt/d/bustub/cmake-build-debug_wsl/src",
+  "command": "/usr/bin/c++  -Dbustub_shared_EXPORTS -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -fPIC   -std=gnu++17 -o CMakeFiles/bustub_shared.dir/concurrency/grading_lock_manager_1_test.cpp.o -c /mnt/d/bustub/src/concurrency/grading_lock_manager_1_test.cpp",
+  "file": "/mnt/d/bustub/src/concurrency/grading_lock_manager_1_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/src",
+  "command": "/usr/bin/c++  -Dbustub_shared_EXPORTS -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -fPIC   -std=gnu++17 -o CMakeFiles/bustub_shared.dir/concurrency/grading_lock_manager_2_test.cpp.o -c /mnt/d/bustub/src/concurrency/grading_lock_manager_2_test.cpp",
+  "file": "/mnt/d/bustub/src/concurrency/grading_lock_manager_2_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/src",
+  "command": "/usr/bin/c++  -Dbustub_shared_EXPORTS -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -fPIC   -std=gnu++17 -o CMakeFiles/bustub_shared.dir/concurrency/grading_lock_manager_3_test.cpp.o -c /mnt/d/bustub/src/concurrency/grading_lock_manager_3_test.cpp",
+  "file": "/mnt/d/bustub/src/concurrency/grading_lock_manager_3_test.cpp"
+},
+{
+  "directory": "/mnt/d/bustub/cmake-build-debug_wsl/src",
   "command": "/usr/bin/c++  -Dbustub_shared_EXPORTS -I/mnt/d/bustub/src -I/mnt/d/bustub/src/include -I/mnt/d/bustub/test/include -I/mnt/d/bustub/third_party   -fPIC -Wextra -Werror -march=native -Wno-unused-parameter -Wno-attributes -g -O0 -ggdb -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls -fPIC   -std=gnu++17 -o CMakeFiles/bustub_shared.dir/concurrency/lock_manager.cpp.o -c /mnt/d/bustub/src/concurrency/lock_manager.cpp",
   "file": "/mnt/d/bustub/src/concurrency/lock_manager.cpp"
 },
