@@ -125,6 +125,8 @@ class LockManager {
    */
   bool HasCycle(txn_id_t *txn_id);
 
+  bool DFS(txn_id_t start_point,std::vector<txn_id_t> *circle_pointset);
+
   /** @return the set of all edges in the graph, used for testing only! */
   std::vector<std::pair<txn_id_t, txn_id_t>> GetEdgeList();
 
@@ -140,6 +142,8 @@ class LockManager {
   std::unordered_map<RID, LockRequestQueue> lock_table_;
   /** Waits-for graph representation. */
   std::unordered_map<txn_id_t, std::vector<txn_id_t>> waits_for_;
+  /** DFS的访问 */
+  std::unordered_map<txn_id_t, bool> visited;
 };
 
 }  // namespace bustub

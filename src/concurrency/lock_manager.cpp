@@ -63,7 +63,7 @@ bool LockManager::LockShared(Transaction *txn, const RID &rid) {
           iter->granted_= true;
         }
       }
-      block = false;
+//      block = false;
     }
     //2.2 如果不是，则该事务跳过等待,grant=true
     else{
@@ -215,13 +215,104 @@ bool LockManager::Unlock(Transaction *txn, const RID &rid) {
   return false;
 }
 
-void LockManager::AddEdge(txn_id_t t1, txn_id_t t2) {}
+void LockManager::AddEdge(txn_id_t t1, txn_id_t t2) {
+  //向等待图中添加有向边
+  auto iter=find(waits_for_[t1].begin(),waits_for_[t1].end(),t2);
+  //如果没有找到该edge，增加
+  if(iter==waits_for_[t1].end()){
+    waits_for_[t1].push_back(t2);
+    //Q:为实现固定结果的遍历，是否需要将vector中的事务号按排序？
+    //Q:排序方式：从大到小
+    std::sort(waits_for_[t1].rbegin(),waits_for_[t1].rend());
+  }
+}
 
-void LockManager::RemoveEdge(txn_id_t t1, txn_id_t t2) {}
+void LockManager::RemoveEdge(txn_id_t t1, txn_id_t t2) {
+  //向等待图中添加有向边
+  auto iter=find(waits_for_[t1].begin(),waits_for_[t1].end(),t2);
+  //如果找到该edge，删除
+  if(iter!=waits_for_[t1].end()){
+    waits_for_[t1].erase(iter);
+  }
+}
 
-bool LockManager::HasCycle(txn_id_t *txn_id) { return false; }
+bool LockManager::DFS(txn_id_t start_point,std::vector<txn_id_t> *circle_pointset) {
+  visited[start_point]= 1;
+  auto point_set=waits_for_[start_point];
+  //1.从点start_point出发，遍历到达的点point，并将边加入边集vector
+  for(auto point=point_set.begin();point!=point_set.end();point++){
+    txn_id_t next_point=*point;
+    //2.1 如果下一个顶点是曾经到达过，将第二次访问的顶点（作为后续判断圈结束的标志）以及本节点加入set
+    if(visited[next_point]){
+      circle_pointset->push_back(next_point);
+      circle_pointset->push_back(start_point);
+     return true;
+    }
+    //2.2 如果下一个顶点还没到达过，
+    //2.2.1 且不是有向图的尽头，则以该点作为起点，调用DFS
+    else if(waits_for_.count(next_point)!=0){
+      bool res=DFS(next_point,circle_pointset);
+      // 3.如果DFS返回的是true，说明该顶点在圈上
+      if(res){
+        //3.1 如果到达圈的初始点，返回false，剩下的点不在圈上
+        if(circle_pointset->front()==start_point){
+          return false;
+        }
+        //3.2 如果没有到达起始点，加入set，返回true
+        else{
+          circle_pointset->push_back(start_point);
+          return true;
+        }
+      }
+      //4. 如果DFS返回false
+      return false;
+    }
+  }
+  //5. 如果从该顶点出发没有可到达的顶点
+  return false;
 
-std::vector<std::pair<txn_id_t, txn_id_t>> LockManager::GetEdgeList() { return {}; }
+}
+
+bool LockManager::HasCycle(txn_id_t *txn_id) {
+  //等待图不一定是强连通图，可能有多个连通分部。所以需要考虑遍历各个出发点
+  for(auto iter=waits_for_.begin();iter!=waits_for_.end();iter++){
+    visited.clear();
+    std::vector<txn_id_t> circle_pointset;
+    circle_pointset.clear();
+    //DSF：深度优先遍历
+    DFS(iter->first,&circle_pointset);
+    //如果圈内的点集circle_pointset不为空，说明有圈
+    if(circle_pointset.size()>0){
+      //找圈内youngest的事务，并返回
+      //Q:youngest的理解：最新的事务，事务号最大
+      for(auto point=circle_pointset.begin();point!=circle_pointset.end();point++){
+        if(*txn_id<*point){
+          *txn_id=*point;
+        }
+      }
+      return true;
+    }
+  }
+  return false;
+}
+
+std::vector<std::pair<txn_id_t, txn_id_t>> LockManager::GetEdgeList() {
+  std::vector<std::pair<txn_id_t,txn_id_t>> edgelist={};
+  //遍历等待图的各出发点
+  for(auto iter=waits_for_.begin();iter!=waits_for_.end();iter++){
+    auto t1=iter->first;
+    auto point_set=iter->second;
+    //从某个点出发，遍历到达的边，并将边加入边集vector
+    for(auto point=point_set.begin();point!=point_set.end();point++){
+      std::pair<txn_id_t,txn_id_t> edge;
+      edge.first=t1;
+      edge.second=*point;
+      edgelist.push_back(edge);
+    }
+  }
+  //返回边集
+  return edgelist;
+}
 
 void LockManager::RunCycleDetection() {
   while (enable_cycle_detection_) {
